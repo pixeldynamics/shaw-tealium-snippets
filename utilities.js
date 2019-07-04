@@ -46,7 +46,7 @@ function get_url_param(name) {
     else if(typeof b != "undefined" && typeof b.audience_id != "undefined" && b.audience_id != "") {
       qualified_audiences.push(b.audience_id);
     }
-
+/*list*/
     var list = [
       {name: 'Student - Existing', audience_id: '333368', priority: 1},
       {name: 'Existing Customer 2YVP Renewal', audience_id: '333354', priority: 2},
