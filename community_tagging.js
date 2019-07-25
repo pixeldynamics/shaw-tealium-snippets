@@ -64,7 +64,7 @@ $(document).on('wysdomAutocompleteClick', function(event) {
 		ac_text = $(event.detail.originalEvent.target).text();
     }
     Object.assign(window.utag_data, {
-        navigationAction: 'wysdom-search-results|' + format_text(ac_text);
+        navigationAction: 'wysdom-search-results|' + format_text(ac_text)
     });
     utag.link(window.utag_data);
 });
