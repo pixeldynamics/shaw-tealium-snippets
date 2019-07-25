@@ -29,10 +29,10 @@ $(document).on('submit', '.SearchForm', function(e) {
 $(document).on('mousedown click touchend', '.lia-autocomplete-node-item', function(e) {
 	var item = format_text($(this).find('.lia-autocomplete-node-list-item-link').text());
 	Object.assign(window.utag_data, {
-				internal_search_term: item,
-				ai_search_keyword: item,
-				navigationAction: 'search-autocomplete|' + item
-			});
+        internal_search_term: item,
+        ai_search_keyword: item,
+        navigationAction: 'search-autocomplete|' + item
+    });
 	utag.link(window.utag_data);
 });
 
@@ -40,8 +40,8 @@ $(document).on('mousedown click touchend', '.lia-autocomplete-node-item', functi
 $(document).on('click', '#searchResults a', function() {
 	var item = format_text($(this).text());
 	Object.assign(window.utag_data, {
-				navigationAction: 'search-results|' + item
-			});
+	    navigationAction: 'search-results|' + item
+	});
 	utag.link(window.utag_data);
 });
 
