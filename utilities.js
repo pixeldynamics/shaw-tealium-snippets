@@ -1,9 +1,9 @@
 /* Prioritization Function */
 window.aid_prioritize = function(qualified_audiences) {
-if(typeof utag_data != "undefined" && typeof utag_data.audience_id != "undefined" && utag_data.audience_id != "") {
+if(typeof utag_data != 'undefined' && typeof utag_data.audience_id !== 'undefined' && utag_data.audience_id != '') {
     qualified_audiences.push(utag_data.audience_id);
 }
-else if(typeof b != "undefined" && typeof b.audience_id != "undefined" && b.audience_id != "") {
+else if(typeof b !== 'undefined' && typeof b.audience_id !== 'undefined' && b.audience_id != '') {
     qualified_audiences.push(b.audience_id);
 }
 /*list*/
