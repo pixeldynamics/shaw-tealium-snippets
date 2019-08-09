@@ -38,8 +38,7 @@ var list = [
     {name: 'Internet Lovers - Tier 1',audience_id: '111129',priority: 28},
     {name: '2P/3P Look-a-like',audience_id: '111117',priority: 29},
     {name: '1P Internet Look-a-like',audience_id: '111119',priority: 30},
-    {name: 'Lower Mainland Edmonton',audience_id: '111150',priority: 31},
-    {name: 'Exclusion - Existing Customer Signals and Current Employees',audience_id: '111110',priority: 32}
+    {name: 'Exclusion - Existing Customer Signals and Current Employees',audience_id: '111110',priority: 31}
     ],
     //qualified_audiences = ['111119', '111123', '111114', '2P/3P Look-a-like'], //Accepts Segment Name or Audience ID from origin.
     audience_match = list.filter(function (obj) {
