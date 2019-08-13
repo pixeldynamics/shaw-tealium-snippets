@@ -288,7 +288,7 @@ function lead_form_name_clean() {
     return name.replace(/[^a-zA-Z 0-9]+/g, '.') || false;
 }
 function eoid() {
-    return utag_data['qp.eoId'] || b.['qp.eoId'] || false;
+    return utag_data['qp.eoId'] || b['qp.eoId'] || false;
 }
 function is_thanks() {
   if (order_id() !== false || (/thankyou/i).test(utag_data.form_step)) { return true; }
