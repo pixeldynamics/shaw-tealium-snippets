@@ -49,10 +49,10 @@ if (document.cookie.indexOf("WRUID") > -1 && document.cookie.indexOf("_CT_RS_") 
 // @TODO: delete this function or uncomment after its first run
 if (document.cookie.indexOf("QSI_HistorySession") >= 0) {
   let expire = new Date();
-  expire.setTime(expire.getTime()-(10)); 
+  expire.setTime(expire.getTime()-(10));
   document.cookie = "QSI_HistorySession=; expires=" + expire.toGMTString();
 }
-
+document.cookie = "s_ppv=; expires= Thu, 21 Aug 2014 20:00:00 UTC"
 //Polling Callback
 window.tealium_enrichment = function(data) {
     //console.log("Data Layer Enrichment Callback");
