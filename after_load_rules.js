@@ -45,6 +45,13 @@ if (document.cookie.indexOf("WRUID") > -1 && document.cookie.indexOf("_CT_RS_") 
     b.genesis_clicktale = p;
 }
 
+// unset  QSI_HistorySession cookie
+if (document.cookie.indexOf("QSI_HistorySession") >= 0) {
+  let expire = new Date();
+  expire.setTime(expire.getTime()+(10*60*1000));
+  document.cookie = "visited=yes; expires=" + expire.toGMTString();
+}
+
 //Polling Callback
 window.tealium_enrichment = function(data) {
     //console.log("Data Layer Enrichment Callback");
