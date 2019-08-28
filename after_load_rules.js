@@ -52,7 +52,7 @@ if (document.cookie.indexOf("QSI_HistorySession") >= 0) {
   expire.setTime(expire.getTime()-(10));
   document.cookie = "QSI_HistorySession=; expires=" + expire.toGMTString();
 }
-document.cookie = "s_ppv=; expires= Thu, 21 Aug 2014 20:00:00 UTC"
+
 //Polling Callback
 window.tealium_enrichment = function(data) {
     //console.log("Data Layer Enrichment Callback");
