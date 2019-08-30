@@ -294,7 +294,13 @@ function is_thanks() {
   if (order_id() !== false || (/thankyou/i).test(utag_data.form_step)) { return true; }
   return false;
 }
-
+// unset QSI_HistorySession cookie
+// @TODO: delete this function or uncomment after its first run
+if (document.cookie.indexOf("QSI_HistorySession") >= 0) {
+  let expire = new Date();
+  expire.setTime(expire.getTime()-(10));
+  document.cookie = "QSI_HistorySession=; expires=" + expire.toGMTString();
+}
 //ION No view
 if(document.domain == 'shaw.postclickmarketing.com' || document.domain == 'shop.shaw.ca' || document.domain == 'shop.shawbusiness.ca' || document.domain == 'shop.shawdirect.ca') {
     window.utag_cfg_ovrd = { noview: true };
