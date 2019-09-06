@@ -45,14 +45,6 @@ if (document.cookie.indexOf("WRUID") > -1 && document.cookie.indexOf("_CT_RS_") 
     b.genesis_clicktale = p;
 }
 
-// unset QSI_HistorySession cookie
-// @TODO: delete this function or uncomment after its first run
-// if (document.cookie.indexOf("QSI_HistorySession") >= 0) {
-//   let expire = new Date();
-//   expire.setTime(expire.getTime()-(10));
-//   document.cookie = "QSI_HistorySession=; expires=" + expire.toGMTString();
-// }
-
 //Polling Callback
 window.tealium_enrichment = function(data) {
     //console.log("Data Layer Enrichment Callback");

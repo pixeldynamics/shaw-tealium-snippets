@@ -208,16 +208,16 @@ window.clickTrackEvent = function(el) {
     trackObj["timestamp"] = utag_data["timestamp"];
     trackObj["lead_form_name"] = utag_data["lead_form_name"] || "";
     trackObj["referring_url"] = utag_data["referring_url"];
-	trackObj["timestamp"] = utag_data["timestamp"];
-	trackObj["site_language"] = utag_data["site_language"];
-	trackObj["platform"] = utag_data["platform"];
-	trackObj["page_section_l2"] = utag_data["page_section_l2"];
-	trackObj["page_section_l3"] = utag_data["page_section_l3"];
-	trackObj["page_section_l4"] = utag_data["page_section_l4"];
-	trackObj["page_section_l5"] = utag_data["page_section_l5"];
-	trackObj["taxonomy_level"] = utag_data["taxonomy_level"];
-	trackObj["user_login_state"] = utag_data["user_login_state"];
-	trackObj["new_repeat"] = utag_data["new_repeat"] = s.getNewRepeat(60);
+  	trackObj["timestamp"] = utag_data["timestamp"];
+  	trackObj["site_language"] = utag_data["site_language"];
+  	trackObj["platform"] = utag_data["platform"];
+  	trackObj["page_section_l2"] = utag_data["page_section_l2"];
+  	trackObj["page_section_l3"] = utag_data["page_section_l3"];
+  	trackObj["page_section_l4"] = utag_data["page_section_l4"];
+  	trackObj["page_section_l5"] = utag_data["page_section_l5"];
+  	trackObj["taxonomy_level"] = utag_data["taxonomy_level"];
+  	trackObj["user_login_state"] = utag_data["user_login_state"];
+  	trackObj["new_repeat"] = utag_data["new_repeat"] = s.getNewRepeat(60);
     var tObjStr = $this.attr("data-trackobj") || "{}";
     var tObj = JSON.parse(tObjStr);
     var tObjEvents = "";
@@ -296,9 +296,7 @@ function is_thanks() {
 // unset QSI_HistorySession cookie
 // @TODO: delete this function or uncomment after its first run
 if (document.cookie.indexOf("QSI_HistorySession") >= 0) {
-  let expire = new Date();
-  expire.setTime(expire.getTime()-(10));
-  document.cookie = "QSI_HistorySession=; expires=" + expire.toGMTString();
+  document.cookie = "QSI_HistorySession=; expires=Fri, 31 Dec 1990 23:59:59 GMT";
 }
 //ION No view
 if(document.domain == 'shaw.postclickmarketing.com' || document.domain == 'shop.shaw.ca' || document.domain == 'shop.shawbusiness.ca' || document.domain == 'shop.shawdirect.ca') {
