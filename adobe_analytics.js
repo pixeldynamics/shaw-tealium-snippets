@@ -183,14 +183,15 @@ if (a == 'view'){
   }
 
 //Parse Timestamp (TODO: Make time to fix this old junk)
-var days = {'sun':'sunday'
-           ,'mon':'monday'
-	   ,'tue':'tuesday'
-	   ,'wed':'wednesday'
-	   ,'thu':'thursday'
-	   ,'fri':'friday'
-	   ,'sat':'saturday'
-	   };
+var days = {
+  'sun':'sunday'
+  ,'mon':'monday'
+  ,'tue':'tuesday'
+  ,'wed':'wednesday'
+  ,'thu':'thursday'
+  ,'fri':'friday'
+  ,'sat':'saturday'
+};
 var time_list = b.timestamp.split(' ');
 //grab day and time dynamically instead of hardcoding the list index
 for(var i=0; i<time_list.length; i++) {
