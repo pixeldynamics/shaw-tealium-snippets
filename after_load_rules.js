@@ -123,7 +123,7 @@ if (jQuery('iframe[src*="youtube.com"]').length > 0) {
 function setMileStones(i) {
   // Set the intervals here as you want them reported, in % viewed, each number separated by a comma
   // If you do not want mileStones set mileStones[i] = [] ;
-  mileStones[i] = [10, 25, 50, 75, 90];
+  mileStones[i] = [25, 50, 75, 100];
 }
 let mileStones = [];
 if (window.iframe_id) {
@@ -135,7 +135,7 @@ if (window.iframe_id) {
 // Load the YouTube iframe library
 //
 let ytapi = document.createElement('script');
-ytapi.src="https://ww" + "w.youtube" + ".com/iframe_api";
+ytapi.src="https://www.youtube.com/iframe_api";
 let scriptref = document.getElementsByTagName('script')[0];
 scriptref.parentNode.insertBefore(ytapi, scriptref);
 
