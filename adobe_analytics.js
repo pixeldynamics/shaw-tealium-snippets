@@ -33,6 +33,7 @@ function s_doPlugins(s) {
     if (s.eVar11)
         s.prop11 = s.eVar11;
 
+    s.eVar109 = 'video name placeholder';
 
     /* For Previous Page value */
     if (s.pageName)
