@@ -182,7 +182,7 @@ window.onPlayerStateChange = function(event) {
      idx = i;
    }
  }
-s.eVar111 = 'Video ID placeholder';
+
  tealium_event = "";
 
  if (event.data == YT.PlayerState.PLAYING) {
