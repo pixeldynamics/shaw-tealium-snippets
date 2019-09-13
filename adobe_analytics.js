@@ -4,9 +4,7 @@ if (typeof(Visitor) != 'undefined') {
   s.visitor = Visitor.getInstance("5F34123F5245B4A70A490D45@AdobeOrg");
 }
 function s_doPlugins(s) {
-
     /*SITE CONTENT EFFECTIVENESS*/
-
     /*Capturing URL */
     s.eVar10 = window.location.toString();
     /*Copying Variables */
@@ -33,8 +31,6 @@ function s_doPlugins(s) {
     if (s.eVar11)
         s.prop11 = s.eVar11;
 
-    s.eVar109 = 'video name placeholder';
-
     /* For Previous Page value */
     if (s.pageName)
         s.prop18 = s.getPreviousValue(s.pageName, 'gpv', ''); // no value will return until s.pageName is populated
@@ -43,7 +39,6 @@ function s_doPlugins(s) {
     var ppv = s.getPercentPageViewed(s.pageName); // no value will return until s.pageName is populated
     s.prop16 = ppv[0] + '|' + ppv[1] + '|' + ppv[2];
 
-
     /*Page number in a visit*/
     s.prop17 = s.getActionDepth('s_depth');
 
@@ -51,6 +46,13 @@ function s_doPlugins(s) {
     if (!s.eVar13){
     b.marketing_cloud_id = s.eVar13 = s.c_r('AMCV_5F34123F5245B4A70A490D45@AdobeOrg').replace(/.*MCMID\ |-( [^\|]*)\|.*/g,"$1");
     }
+
+    /* @TODO WIP: youtube video integration */
+    s.eVar12 = '<content>|<current-page>|<module-name|<video-name>|Play/Pause';
+    s.eVar108 = utag.data["video_platform"]; // temporary, use shortcut
+    s.eVar109 = 'Video name placeholder';
+    s.eVar110 = 'Video Length placeholder';
+    
 }
 s.doPlugins = s_doPlugins
 
