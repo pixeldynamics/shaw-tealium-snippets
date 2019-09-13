@@ -99,7 +99,6 @@ jQuery(document.body).on("action", function(p) {
 });
 
 
-// @TODO: WIP
 // Tealium Tracking Code for YouTube iframe embeds
 //
 // Read the identifiers on the YouTube iframes. If not present, then add ids
@@ -120,10 +119,7 @@ if (jQuery('iframe[src*="youtube.com"]').length > 0) {
 }
 
 // Configure Milestones
-//
 function setMileStones(i) {
-  // Set the intervals here as you want them reported, in % viewed, each number separated by a comma
-  // If you do not want mileStones set mileStones[i] = [] ;
   mileStones[i] = [25, 50, 75, 100];
 }
 let mileStones = [];
@@ -134,7 +130,6 @@ if (window.iframe_id) {
 }
 
 // Load the YouTube iframe library
-//
 let ytapi = document.createElement('script');
 ytapi.src="https://www.youtube.com/iframe_api";
 let scriptref = document.getElementsByTagName('script')[0];
@@ -187,7 +182,7 @@ window.onPlayerStateChange = function(event) {
      idx = i;
    }
  }
-
+s.eVar111 = 'Video ID placeholder';
  tealium_event = "";
 
  if (event.data == YT.PlayerState.PLAYING) {
