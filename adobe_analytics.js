@@ -49,10 +49,10 @@ function s_doPlugins(s) {
 
     /* @TODO WIP: youtube video integration */
     s.eVar12 = '<content>|<current-page>|<module-name|<video-name>|Play/Pause';
-    s.eVar108 = utag.data["video_platform"]; // temporary, use shortcut
+    s.eVar108 = 'holder';//utag.data["video_platform"]; // temporary, use shortcut
     s.eVar109 = 'Video name placeholder';
     s.eVar110 = 'Video Length placeholder';
-    
+    s.eVar111 = 'Video ID placeholder';
 }
 s.doPlugins = s_doPlugins
 
