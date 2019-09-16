@@ -100,8 +100,6 @@ jQuery(document.body).on("action", function(p) {
 
 
 // Tealium Tracking Code for YouTube iframe embeds
-//
-// Read the identifiers on the YouTube iframes. If not present, then add ids
 if (jQuery('iframe[src*="youtube.com"]').length > 0) {
  let i = 0, id;
  window.iframe_id = [];
@@ -118,7 +116,6 @@ if (jQuery('iframe[src*="youtube.com"]').length > 0) {
  });
 }
 
-// Configure Milestones
 function setMileStones(i) {
   mileStones[i] = [25, 50, 75, 100];
 }

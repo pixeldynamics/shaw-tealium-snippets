@@ -176,12 +176,44 @@ s.getActionDepth=new Function("c",""
 + "if(!s.c_r(c)){v=1}if(s.c_r(c)){v=s.c_r(c);v++}"
 + "if(!s.c_w(c,v,t)){s.c_w(c,v,0)}return v;");
 
-if ( b['tealium_event'] == 'video_load'){
-    u.addEvent("event120");
-} else if (b['tealium_event'] == 'video_play'){
-    u.addEvent("event122");
-}
 
+
+// start/play/pause handler
+switch(b['tealium_event']) {
+    case 'video_start':
+      console.log('event120 trigger'  );
+      u.addEvent("event120");
+      break;
+    case 'video_play':
+      console.log('event120 trigger'  );
+      u.addEvent("event125");
+      break;
+    case 'video_pause':
+      u.addEvent("event126");
+      break;
+      console.log('default event hit' + b['tealium_event']);
+  }
+
+
+// milestone handler
+let milestone_s = b['video_playhead']; // calculate current milestone.
+
+switch(milestone_s) {
+    case 25:
+      u.addEvent("event121");
+      break;
+    case 50:
+      u.addEvent("event122");
+      break;
+    case 75:
+      u.addEvent("event123");
+      break;
+    case 100:
+      u.addEvent("event124");
+      break;
+    default:
+      console.log('default milestone hit' + milestone_s);
+  }
 
 //Pageview - Event1, Link Click - Event12
 if (a == 'view'){
