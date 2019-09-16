@@ -36,7 +36,7 @@ function s_doPlugins(s) {
         s.prop18 = s.getPreviousValue(s.pageName, 'gpv', ''); // no value will return until s.pageName is populated
 
     /*capturing the percent of page viewed*/
-    var ppv = s.getPercentPageViewed(s.pageName); // no value will return until s.pageName is populated
+    let ppv = s.getPercentPageViewed(s.pageName); // no value will return until s.pageName is populated
     s.prop16 = ppv[0] + '|' + ppv[1] + '|' + ppv[2];
 
     /*Page number in a visit*/
@@ -47,9 +47,9 @@ function s_doPlugins(s) {
       b.marketing_cloud_id = s.eVar13 = s.c_r('AMCV_5F34123F5245B4A70A490D45@AdobeOrg').replace(/.*MCMID\ |-( [^\|]*)\|.*/g,"$1");
     }
 
-    /* set youtube evars: WIP*/
-    s.eVar12 = '<content>|<current-page>|<module-name|<video-name>|Play/Pause';
-
+    /* set youtube evars*/
+    // evar12 may not be needed.
+    // s.eVar12 = '<content>|<current-page>|<module-name|<video-name>|Play/Pause';
     s.eVar108 = b['video_platform'];
     s.eVar109 = b['video_name'];
     s.eVar110 = b['video_length'];
@@ -176,16 +176,12 @@ s.getActionDepth=new Function("c",""
 + "if(!s.c_r(c)){v=1}if(s.c_r(c)){v=s.c_r(c);v++}"
 + "if(!s.c_w(c,v,t)){s.c_w(c,v,0)}return v;");
 
-
-
 // start/play/pause handler
 switch(b['tealium_event']) {
     case 'video_start':
-      console.log('event120 trigger'  );
       u.addEvent("event120");
       break;
     case 'video_play':
-      console.log('event120 trigger'  );
       u.addEvent("event125");
       break;
     case 'video_pause':
@@ -194,11 +190,8 @@ switch(b['tealium_event']) {
       console.log('default event hit' + b['tealium_event']);
   }
 
-
 // milestone handler
-let milestone_s = b['video_playhead']; // calculate current milestone.
-
-switch(milestone_s) {
+switch(b['video_milestone']) {
     case 25:
       u.addEvent("event121");
       break;
@@ -212,7 +205,7 @@ switch(milestone_s) {
       u.addEvent("event124");
       break;
     default:
-      console.log('default milestone hit' + milestone_s);
+      console.log('default milestone hit' + b['video_milestone']);
   }
 
 //Pageview - Event1, Link Click - Event12
@@ -225,7 +218,7 @@ if (a == 'view'){
   }
 
 //Parse Timestamp (TODO: Make time to fix this old junk)
-var days = {
+let days = {
   'sun':'sunday'
   ,'mon':'monday'
   ,'tue':'tuesday'
@@ -234,16 +227,16 @@ var days = {
   ,'fri':'friday'
   ,'sat':'saturday'
 };
-var time_list = b.timestamp.split(' ');
+let time_list = b.timestamp.split(' ');
 //grab day and time dynamically instead of hardcoding the list index
-for(var i=0; i<time_list.length; i++) {
+for(let i=0; i<time_list.length; i++) {
   if(time_list[i] in days)
-    var in_day = time_list[i];
+    let in_day = time_list[i];
   if(time_list[i].indexOf(':')>0)
-    var in_time = time_list[i];
+    let in_time = time_list[i];
 }
-var hour = parseInt(in_time.split(':')[0]);
-var ampm = 'am';
+let hour = parseInt(in_time.split(':')[0]);
+let ampm = 'am';
 
 if(hour==24) {
   hour = 12;
@@ -258,5 +251,5 @@ else if(hour>12) {
   ampm = 'pm';
 }
 
-var out_time = hour+':'+in_time.split(':')[1];
+let out_time = hour+':'+in_time.split(':')[1];
 b.hour_of_day = days[in_day]+'|'+out_time+ampm;
