@@ -44,13 +44,13 @@ function s_doPlugins(s) {
 
     b.marketing_cloud_id = s.eVar13 = s.visitor.getMarketingCloudVisitorID();
     if (!s.eVar13){
-    b.marketing_cloud_id = s.eVar13 = s.c_r('AMCV_5F34123F5245B4A70A490D45@AdobeOrg').replace(/.*MCMID\ |-( [^\|]*)\|.*/g,"$1");
+      b.marketing_cloud_id = s.eVar13 = s.c_r('AMCV_5F34123F5245B4A70A490D45@AdobeOrg').replace(/.*MCMID\ |-( [^\|]*)\|.*/g,"$1");
     }
 
     /* @TODO WIP: youtube video integration */
-    s.eVar12 = '<content>|<current-page>|<module-name|<video-name>|Play/Pause';
-    s.eVar108 = 'holder';//utag.data["video_platform"]; // temporary, use shortcut
-    s.eVar109 = 'Video name placeholder';
+    // s.eVar12 = '<content>|<current-page>|<module-name|<video-name>|Play/Pause';
+    s.eVar108 = b['video_platform'];//utag.data["video_platform"]; // temporary, use shortcut
+    s.eVar109 = utag_data['dom.domain']||b['dom.domain'];;//'Video name placeholder';
     s.eVar110 = 'Video Length placeholder';
     s.eVar111 = 'Video ID placeholder';
 }
