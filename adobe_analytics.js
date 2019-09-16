@@ -47,12 +47,13 @@ function s_doPlugins(s) {
       b.marketing_cloud_id = s.eVar13 = s.c_r('AMCV_5F34123F5245B4A70A490D45@AdobeOrg').replace(/.*MCMID\ |-( [^\|]*)\|.*/g,"$1");
     }
 
-    /* @TODO WIP: youtube video integration */
-    // s.eVar12 = '<content>|<current-page>|<module-name|<video-name>|Play/Pause';
-    s.eVar108 = b['video_platform'];//utag.data["video_platform"]; // temporary, use shortcut
-    s.eVar109 = utag_data['dom.domain']||b['dom.domain'];;//'Video name placeholder';
-    s.eVar110 = 'Video Length placeholder';
-    s.eVar111 = 'Video ID placeholder';
+    /* set youtube evars: WIP*/
+    s.eVar12 = '<content>|<current-page>|<module-name|<video-name>|Play/Pause';
+
+    s.eVar108 = b['video_platform'];
+    s.eVar109 = b['video_name'];
+    s.eVar110 = b['video_length'];
+    s.eVar111 = b['video_id'];
 }
 s.doPlugins = s_doPlugins
 
@@ -174,6 +175,12 @@ s.getActionDepth=new Function("c",""
 + "var s=this,v=1,t=new Date;t.setTime(t.getTime()+1800000);"
 + "if(!s.c_r(c)){v=1}if(s.c_r(c)){v=s.c_r(c);v++}"
 + "if(!s.c_w(c,v,t)){s.c_w(c,v,0)}return v;");
+
+if ( b['tealium_event'] == 'video_load'){
+    u.addEvent("event120");
+} else if (b['tealium_event'] == 'video_play'){
+    u.addEvent("event122");
+}
 
 
 //Pageview - Event1, Link Click - Event12
