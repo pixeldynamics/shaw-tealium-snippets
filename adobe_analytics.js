@@ -48,7 +48,7 @@ function s_doPlugins(s) {
     }
 
     /* set youtube evars: WIP*/
-    s.eVar12 = b['video_playhead'];//'<content>|<current-page>|<module-name|<video-name>|Play/Pause';
+    s.eVar12 = '<content>|<current-page>|<module-name|<video-name>|Play/Pause';
 
     s.eVar108 = b['video_platform'];
     s.eVar109 = b['video_name'];
@@ -192,11 +192,8 @@ switch(b['tealium_event']) {
       console.log('default event hit' + b['tealium_event']);
   }
 
-
-// milestone handler WIP
-let milestone_s = b['video_playhead']; // calculate current milestone.
-
-switch(milestone_s) {
+// milestone handler
+switch(b['video_milestone']) {
     case 25:
       u.addEvent("event121");
       break;
@@ -210,7 +207,7 @@ switch(milestone_s) {
       u.addEvent("event124");
       break;
     default:
-      console.log('default milestone hit' + milestone_s);
+      console.log('default milestone hit' + b['video_milestone']);
   }
 
 //Pageview - Event1, Link Click - Event12
