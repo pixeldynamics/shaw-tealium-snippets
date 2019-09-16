@@ -48,7 +48,7 @@ function s_doPlugins(s) {
     }
 
     /* set youtube evars: WIP*/
-    s.eVar12 = '<content>|<current-page>|<module-name|<video-name>|Play/Pause';
+    s.eVar12 = b['video_playhead'];//'<content>|<current-page>|<module-name|<video-name>|Play/Pause';
 
     s.eVar108 = b['video_platform'];
     s.eVar109 = b['video_name'];
@@ -181,11 +181,9 @@ s.getActionDepth=new Function("c",""
 // start/play/pause handler
 switch(b['tealium_event']) {
     case 'video_start':
-      console.log('event120 trigger'  );
       u.addEvent("event120");
       break;
     case 'video_play':
-      console.log('event120 trigger'  );
       u.addEvent("event125");
       break;
     case 'video_pause':
@@ -195,7 +193,7 @@ switch(b['tealium_event']) {
   }
 
 
-// milestone handler
+// milestone handler WIP
 let milestone_s = b['video_playhead']; // calculate current milestone.
 
 switch(milestone_s) {
