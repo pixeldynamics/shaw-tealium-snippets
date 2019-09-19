@@ -187,7 +187,6 @@ switch(b['tealium_event']) {
     case 'video_pause':
       u.addEvent("event126");
       break;
-      console.log('default event hit' + b['tealium_event']);
   }
 
 // milestone handler
@@ -204,8 +203,6 @@ switch(b['video_milestone']) {
     case 100:
       u.addEvent("event124");
       break;
-    default:
-      console.log('default milestone hit' + b['video_milestone']);
   }
 
 //Pageview - Event1, Link Click - Event12
