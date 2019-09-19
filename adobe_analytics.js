@@ -36,7 +36,7 @@ function s_doPlugins(s) {
         s.prop18 = s.getPreviousValue(s.pageName, 'gpv', ''); // no value will return until s.pageName is populated
 
     /*capturing the percent of page viewed*/
-    let ppv = s.getPercentPageViewed(s.pageName); // no value will return until s.pageName is populated
+    var ppv = s.getPercentPageViewed(s.pageName); // no value will return until s.pageName is populated
     s.prop16 = ppv[0] + '|' + ppv[1] + '|' + ppv[2];
 
     /*Page number in a visit*/
@@ -215,7 +215,7 @@ if (a == 'view'){
   }
 
 //Parse Timestamp (TODO: Make time to fix this old junk)
-let days = {
+var days = {
   'sun':'sunday'
   ,'mon':'monday'
   ,'tue':'tuesday'
@@ -224,16 +224,16 @@ let days = {
   ,'fri':'friday'
   ,'sat':'saturday'
 };
-let time_list = b.timestamp.split(' ');
+var time_list = b.timestamp.split(' ');
 //grab day and time dynamically instead of hardcoding the list index
-for(let i=0; i<time_list.length; i++) {
+for(var i=0; i<time_list.length; i++) {
   if(time_list[i] in days)
-    let in_day = time_list[i];
+    var in_day = time_list[i];
   if(time_list[i].indexOf(':')>0)
-    let in_time = time_list[i];
+    var in_time = time_list[i];
 }
-let hour = parseInt(in_time.split(':')[0]);
-let ampm = 'am';
+var hour = parseInt(in_time.split(':')[0]);
+var ampm = 'am';
 
 if(hour==24) {
   hour = 12;
@@ -248,5 +248,5 @@ else if(hour>12) {
   ampm = 'pm';
 }
 
-let out_time = hour+':'+in_time.split(':')[1];
+var out_time = hour+':'+in_time.split(':')[1];
 b.hour_of_day = days[in_day]+'|'+out_time+ampm;
