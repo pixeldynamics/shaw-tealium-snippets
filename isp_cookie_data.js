@@ -1,3 +1,4 @@
+// @ TODO is this code needed? -Obi
 locArr = [];
 if (utag.data['cp.location'] && utag.data['cp.location'].length > 0) {
 	utag.data['cp.location'].split("!").forEach(function(e){
