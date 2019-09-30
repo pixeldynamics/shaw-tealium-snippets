@@ -1,3 +1,5 @@
+// @ TODO is this code needed? hotfix  -Obi
+
 try {
     var user_type = analytics.tools.get_storage('new_customer_type');
     if (user_type == null && (document.cookie.indexOf('browser_profile=') > -1)) {

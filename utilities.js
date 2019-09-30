@@ -71,9 +71,12 @@ function get_url_param(name) {
 }
 
 //Placeholder moch function for legacy GeoIP Service
+// @ TODO is this code needed? Should a story be created? -Obi
 function geoip() {
     return false;
 }
+
+// @ TODO is this code needed? -Obi
 //Preload Optimizely Data
 try {
     if (typeof(optimizely) !== 'undefined') {
@@ -298,6 +301,8 @@ function is_thanks() {
 // if (document.cookie.indexOf("QSI_HistorySession") >= 0) {
 //   document.cookie = "QSI_HistorySession=; expires=Fri, 31 Dec 1990 23:59:59 GMT";
 // }
+
+// @ TODO is this code needed? awaiting decommision? -Obi
 //ION No view
 if(document.domain == 'shaw.postclickmarketing.com' || document.domain == 'shop.shaw.ca' || document.domain == 'shop.shawbusiness.ca' || document.domain == 'shop.shawdirect.ca') {
     window.utag_cfg_ovrd = { noview: true };

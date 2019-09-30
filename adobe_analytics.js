@@ -48,8 +48,6 @@ function s_doPlugins(s) {
     }
 
     /* set youtube evars*/
-    // evar12 may not be needed.
-    // s.eVar12 = '<content>|<current-page>|<module-name|<video-name>|Play/Pause';
     s.eVar108 = b['video_platform'];
     s.eVar109 = b['video_name'];
     s.eVar110 = b['video_length'];
@@ -215,6 +213,7 @@ if (a == 'view'){
   }
 
 //Parse Timestamp (TODO: Make time to fix this old junk)
+// @ TODO is this code needed? -Obi
 var days = {
   'sun':'sunday'
   ,'mon':'monday'
@@ -235,6 +234,7 @@ for(var i=0; i<time_list.length; i++) {
 var hour = parseInt(in_time.split(':')[0]);
 var ampm = 'am';
 
+// @ TODO refactor this -Obi
 if(hour==24) {
   hour = 12;
   ampm = 'am';

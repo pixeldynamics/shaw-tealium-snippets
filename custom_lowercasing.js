@@ -1,3 +1,4 @@
+// @ TODO is this code needed? -Obi
 //Exceptions object value doesnt matter
 var exceptions = {
     'gclid' : 1,

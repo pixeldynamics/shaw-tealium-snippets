@@ -1,3 +1,4 @@
+// @ TODO is this code needed? -Obi
 if (document.location.pathname.includes('/checkout')) {
 	$(document).on('submit', function(event) {
 		if (typeof (sha256 === 'function')) {

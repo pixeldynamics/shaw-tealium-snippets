@@ -1,3 +1,4 @@
+// @ TODO is this code needed? -Obi
 try {
     if (typeof(optimizely) !== 'undefined') {
         var exp = [],

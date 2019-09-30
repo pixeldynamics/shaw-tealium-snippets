@@ -22,7 +22,7 @@ for(k in dl) {
 if(k.indexOf('va.audiences')>=0 && dl[k].indexOf('_')>=0)
     audience_lst.push(dl[k].split('_')[0]);
 }
-//console.log(audience_lst);
+
 if(audience_lst.length > 0) {
     audience_lst = Array.from(new Set(audience_lst));
     tmp_lst = [];
@@ -37,7 +37,8 @@ if(audience_lst.length > 0) {
     b.audience_qualifier = aid;
 }
 
-
+// @ TODO there seems to be work still going on regarding config for this,
+// is this code currently needed or can it be commented out? -Obi
 //Clicktale Mapping
 if (document.cookie.indexOf("WRUID") > -1 && document.cookie.indexOf("_CT_RS_") > -1 && window.localStorage && localStorage.getItem("ClicktalePID") && localStorage.getItem("ClicktaleUID")) {
     var p = (localStorage.getItem("ClicktaleUID") + "." + localStorage.getItem("ClicktalePID"));
@@ -83,6 +84,8 @@ if(pmc != null && pmc.eVar1 == 'confirmation') {
 	}
 }
 
+
+// @ TODO is this code needed after the decommission? -Obi
 //ION Flow - Event Listener
 jQuery(document.body).on("action", function(p) {
     if (p.type === "action" && p.event === "flowClick") {
