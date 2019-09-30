@@ -190,15 +190,19 @@ switch(b['tealium_event']) {
 // milestone handler
 switch(b['video_milestone']) {
     case 25:
+console.log('event121');
       u.addEvent("event121");
       break;
     case 50:
+console.log('event122');
       u.addEvent("event122");
       break;
     case 75:
+console.log('event124');
       u.addEvent("event123");
       break;
     case 100:
+console.log('event124');
       u.addEvent("event124");
       break;
   }
