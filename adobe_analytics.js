@@ -210,8 +210,10 @@ switch(b['tealium_event']) {
 // @TODO: delete this
 if(b['video_milestone']) {
   console.log("b['video_milestone'] exists");
+  console.log('bmilestone' + b['video_milestone']);
 } else if ('video_milestone'){
   console.log(" video_milestone  exists");
+  console.log('bmilestone_' +  video_milestone);
 }
 // milestone handler
 // switch(b['video_milestone']) {
