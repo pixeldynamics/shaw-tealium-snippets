@@ -187,6 +187,7 @@ switch(b['tealium_event']) {
       break;
     // milestone event setter WIP
     case 'video_milestone':
+      console.log('video_milestone hit');
       if ('video_milestone' == 25){
         console.log('event121');
         u.addEvent("event121");
@@ -201,9 +202,17 @@ switch(b['tealium_event']) {
         u.addEvent("event124");
       }
       break;
+    case 'video_playhead':
+      console.log('video_playhead hit');
+      break;
   }
-  
+
 // @TODO: delete this
+if(b['video_milestone']) {
+  console.log("b['video_milestone'] exists");
+} else if ('video_milestone'){
+  console.log("b['video_milestone'] exists");
+}
 // milestone handler
 // switch(b['video_milestone']) {
 //     case 25:
