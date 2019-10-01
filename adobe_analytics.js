@@ -207,6 +207,19 @@ console.log('event124');
       break;
   }
 
+
+
+// @TODO: remove below debug snippet
+if (b['video_milestone']){
+      console.log('event_vid_ms' + b['video_milestone']);
+} else if (b['video_playhead']){
+      console.log('event_vid_ph' + b['video_playhead']);
+}
+// @TODO: remove above
+
+
+
+
 //Pageview - Event1, Link Click - Event12
 if (a == 'view'){
     /*b.page_load_flag = "true";*/
