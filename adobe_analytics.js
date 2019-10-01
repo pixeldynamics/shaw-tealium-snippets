@@ -208,7 +208,8 @@ switch(b['tealium_event']) {
   }
 
 // milestone handler
-switch('video_milestone') {
+let vmilestone_ = b['video_milestone'];  // 'video_milestone';
+switch(vmilestone_) {
     case 25:
       console.log('video_milestone event121');
       u.addEvent("event121");
@@ -225,14 +226,37 @@ switch('video_milestone') {
       console.log('video_milestone event124');
       u.addEvent("event124");
       break;
-    case 'video_milestone':
+    case vmilestone_:
       console.log('video_milestone video_milestone case hit');
-      console.log(typeof video_milestone);
-      let hold = 'video_milestone';
-      return hold;
+      console.log('type of ' + typeof video_milestone);
       break;
   }
 
+  // milestone handler 2 [testcase]
+  let vmilestone2_ =    'video_milestone';
+  switch(vmilestone2_) {
+      case 25:
+        console.log('video_milestone vmilestone2_ event121');
+        u.addEvent("event121");
+        break;
+      case 50:
+        console.log('video_milestone vmilestone2_ event122');
+        u.addEvent("event122");
+        break;
+      case 75:
+        console.log('video_milestone event123');
+        u.addEvent("event123");
+        break;
+      case 100:
+        console.log('video_milestone event124');
+        u.addEvent("event124");
+        break;
+      case vmilestone2_:
+        console.log('video_milestone video_milestone case hit');
+        console.log('video_milestone vmilestone2_ = ' + vmilestone2_);
+        console.log('type of ' + typeof vmilestone2_);
+        break;
+    }
 
   // @TODO: delete this
   // if(b['video_milestone']) {
