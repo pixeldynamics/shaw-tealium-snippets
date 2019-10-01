@@ -185,65 +185,63 @@ switch(b['tealium_event']) {
     case 'video_pause':
       u.addEvent("event126");
       break;
-    // milestone event setter WIP
-    case 'video_milestone':
-      // console.log('video_milestone hit');
-      // if ('video_milestone' == 25){
-      //   console.log('event121');
-      //   u.addEvent("event121");
-      // } else if ('video_milestone' == 50){
-      //   console.log('event122');
-      //   u.addEvent("event122");
-      // } else if ('video_milestone' == 75){
-      //   console.log('event123');
-      //   u.addEvent("event123");
-      // }else if ('video_milestone' == 100){
-      //   console.log('event124');
-      //   u.addEvent("event124");
-      // }
+    // milestone event setter WIP @TODO: Delete this if seen after oct 17, 2019
+    // case 'video_milestone':
+    //   console.log('video_milestone hit');
+    //   if ('video_milestone' == 25){
+    //     console.log('event121');
+    //     u.addEvent("event121");
+    //   } else if ('video_milestone' == 50){
+    //     console.log('event122');
+    //     u.addEvent("event122");
+    //   } else if ('video_milestone' == 75){
+    //     console.log('event123');
+    //     u.addEvent("event123");
+    //   }else if ('video_milestone' == 100){
+    //     console.log('event124');
+    //     u.addEvent("event124");
+    //   }
+    //   break;
+    // case 'video_playhead':
+    //   console.log('video_playhead hit');
+    //   break;
+  }
+
+// milestone handler
+switch('video_milestone') {
+    case 25:
+      console.log('video_milestone event121');
+      u.addEvent("event121");
       break;
-    case 'video_playhead':
-      console.log('video_playhead hit');
+    case 50:
+      console.log('video_milestone event122');
+      u.addEvent("event122");
+      break;
+    case 75:
+      console.log('video_milestone event123');
+      u.addEvent("event123");
+      break;
+    case 100:
+      console.log('video_milestone event124');
+      u.addEvent("event124");
+      break;
+    case 'video_milestone':
+      console.log('video_milestone video_milestone case hit');
+      console.log(typeof video_milestone);
+      let hold = 'video_milestone';
+      return hold;
       break;
   }
 
-// @TODO: delete this
-// if(b['video_milestone']) {
-//   // doesnt exist
-//   console.log("b['video_milestone'] exists");
-//   console.log('bmilestone' + b['video_milestone']);
-// } else if ('video_milestone'){
-//   // exists
-//   console.log(" video_milestone  exists");
-//   console.log('bmilestone_' +  'video_milestone');
-// }
 
-// milestone handler
-// switch('video_milestone') {
-//     case 25:
-// console.log('event121');
-//       u.addEvent("event121");
-//       break;
-//     case 50:
-// console.log('event122');
-//       u.addEvent("event122");
-//       break;
-//     case 75:
-// console.log('event124');
-//       u.addEvent("event123");
-//       break;
-//     case 100:
-// console.log('event124');
-//       u.addEvent("event124");
-//       break;
-//     case 'video_milestone':
-// console.log('video_milestone');
-//       u.addEvent("event124");
-//       break;
-//     default:
-//       console.log('This is a check, ignore');
-//       break;
-//   }
+  // @TODO: delete this
+  // if(b['video_milestone']) {
+  //   console.log("b['video_milestone'] exists");
+  //   console.log('bmilestone' + b['video_milestone']);
+  // } else if ('video_milestone'){
+  //   console.log(" video_milestone  exists");
+  //   console.log('bmilestone_' +  'video_milestone');
+  // }
 
 
 //Pageview - Event1, Link Click - Event12
