@@ -174,7 +174,7 @@ s.getActionDepth=new Function("c",""
 + "if(!s.c_r(c)){v=1}if(s.c_r(c)){v=s.c_r(c);v++}"
 + "if(!s.c_w(c,v,t)){s.c_w(c,v,0)}return v;");
 
-// start/play/pause handler
+// video event handler
 switch(b['tealium_event']) {
     case 'video_start':
       u.addEvent("event120");
@@ -185,39 +185,44 @@ switch(b['tealium_event']) {
     case 'video_pause':
       u.addEvent("event126");
       break;
+    // milestone event setter WIP
+    case 'video_milestone':
+      if ('video_milestone' == 25){
+        console.log('event121');
+        u.addEvent("event121");
+      } else if ('video_milestone' == 50){
+        console.log('event122');
+        u.addEvent("event122");
+      } else if ('video_milestone' == 75){
+        console.log('event123');
+        u.addEvent("event123");
+      }else if ('video_milestone' == 100){
+        console.log('event124');
+        u.addEvent("event124");
+      }
+      break;
   }
-
+  
+// @TODO: delete this
 // milestone handler
-switch(b['video_milestone']) {
-    case 25:
-console.log('event121');
-      u.addEvent("event121");
-      break;
-    case 50:
-console.log('event122');
-      u.addEvent("event122");
-      break;
-    case 75:
-console.log('event124');
-      u.addEvent("event123");
-      break;
-    case 100:
-console.log('event124');
-      u.addEvent("event124");
-      break;
-  }
-
-
-
-// @TODO: remove below debug snippet
-if (b['video_milestone']){
-      console.log('event_vid_ms' + b['video_milestone']);
-} else if (b['video_playhead']){
-      console.log('event_vid_ph' + b['video_playhead']);
-}
-// @TODO: remove above
-
-
+// switch(b['video_milestone']) {
+//     case 25:
+// console.log('event121');
+//       u.addEvent("event121");
+//       break;
+//     case 50:
+// console.log('event122');
+//       u.addEvent("event122");
+//       break;
+//     case 75:
+// console.log('event124');
+//       u.addEvent("event123");
+//       break;
+//     case 100:
+// console.log('event124');
+//       u.addEvent("event124");
+//       break;
+//   }
 
 
 //Pageview - Event1, Link Click - Event12
