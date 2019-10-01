@@ -211,7 +211,7 @@ switch(b['tealium_event']) {
 if(b['video_milestone']) {
   console.log("b['video_milestone'] exists");
 } else if ('video_milestone'){
-  console.log("b['video_milestone'] exists");
+  console.log(" video_milestone  exists");
 }
 // milestone handler
 // switch(b['video_milestone']) {
