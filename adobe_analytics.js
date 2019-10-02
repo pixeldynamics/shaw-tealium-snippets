@@ -185,69 +185,31 @@ switch(b['tealium_event']) {
     case 'video_pause':
       u.addEvent("event126");
       break;
-    // milestone event setter WIP @TODO: Delete this if seen after oct 17, 2019
-    // case 'video_milestone':
-    //   console.log('video_milestone hit');
-    //   if ('video_milestone' == 25){
-    //     console.log('event121');
-    //     u.addEvent("event121");
-    //   } else if ('video_milestone' == 50){
-    //     console.log('event122');
-    //     u.addEvent("event122");
-    //   } else if ('video_milestone' == 75){
-    //     console.log('event123');
-    //     u.addEvent("event123");
-    //   }else if ('video_milestone' == 100){
-    //     console.log('event124');
-    //     u.addEvent("event124");
-    //   }
-    //   break;
-    // case 'video_playhead':
-    //   console.log('video_playhead hit');
-    //   break;
+    // milestone event setter WIP
+    case 'video_milestone':
+
+    // @TODO: change to switch 
+      console.log('video_milestone hit');
+      if ('video_milestone' == 25){
+        console.log('event121');
+        u.addEvent("event121");
+      } else if ('video_milestone' == 50){
+        console.log('event122');
+        u.addEvent("event122");
+      } else if ('video_milestone' == 75){
+        console.log('event123');
+        u.addEvent("event123");
+      }else if ('video_milestone' == 100){
+        console.log('event124');
+        u.addEvent("event124");
+      }
+      break;
+    case 'video_playhead':
+      console.log('video_playhead hit');
+      break;
   }
 
 
-
-// @TODO WIP :Delete this if seen after oct 17, 2019
-// playhead
-// switch(b['video_playhead']) {
-//     case '25':
-//       console.log('video_playhead event121');
-//       u.addEvent("event121");
-//       break;
-//     case '50':
-//       console.log('video_playhead event122');
-//       u.addEvent("event122");
-//       break;
-//     case '75':
-//       console.log('video_playhead event123');
-//       u.addEvent("event123");
-//       break;
-//     case '100':
-//       console.log('video_playhead event124');
-//       u.addEvent("event124");
-//       break;
-//   }
-//
-//   switch(b['video_playhead']) {
-//       case 25:
-//         console.log('video_playhead v33milestone2_ event121');
-//         u.addEvent("event121");
-//         break;
-//       case 50:
-//         console.log('video_playhead v33milestone2_ event122');
-//         u.addEvent("event122");
-//         break;
-//       case 75:
-//         console.log('video_playhead 33 event123');
-//         u.addEvent("event123");
-//         break;
-//       case 100:
-//         console.log('video_playhead 33 event124');
-//         u.addEvent("event124");
-//         break;
-//     }
 // @TODO: delete this
 // if(b['video_milestone']) {
 //   console.log("b['video_milestone'] exists");
