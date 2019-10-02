@@ -189,21 +189,20 @@ switch(b['tealium_event']) {
   }
 
   // video milestone handler
-  switch(b['video_milestone']) {
-      case '25':
-        console.log('video_milestone vmilestone2_ event121');
-        u.addEvent("event121");
-      case '50':
-        console.log('video_milestone vmilestone2_ event122');
-        u.addEvent("event122");
-      case '75':
-        console.log('video_milestone event123');
-        u.addEvent("event123");
-      case '100':
-        console.log('video_milestone event124');
-        u.addEvent("event124");
-      default:
-        break;
+    let bvm_handler = b['video_milestone'];
+    console.log('bvm_handler type = ' + typeof bvm_handler);
+    if (bvm_handler === '25'){
+      console.log('video_milestone vmilestone1_ event121');
+      u.addEvent("event121");
+    } else if (bvm_handler === 50){
+      console.log('video_milestone vmilestone1_ event122');
+      u.addEvent("event122");
+    } else if (bvm_handler == '75'){
+      console.log('video_milestone vmilestone1_ event123');
+      u.addEvent("event123");
+    }else if (bvm_handler == '100'){
+      console.log('video_milestone vmilestone1_ event124');
+      u.addEvent("event124");
     }
 
 //Pageview - Event1, Link Click - Event12
