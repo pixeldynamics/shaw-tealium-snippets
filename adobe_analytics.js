@@ -178,49 +178,32 @@ s.getActionDepth=new Function("c",""
 switch(b['tealium_event']) {
     case 'video_start':
       u.addEvent("event120");
-      // break;
+      break;
     case 'video_play':
+      // play event isnt called after video pause @TODO
       u.addEvent("event125");
-      // break;
+      break;
     case 'video_pause':
       u.addEvent("event126");
-      // break;
+      break;
   }
 
-  // milestone handler
+  // video milestone handler
   switch(b['video_milestone']) {
       case '25':
-      // hit
         console.log('video_milestone vmilestone2_ event121');
         u.addEvent("event121");
-        // break;
       case '50':
         console.log('video_milestone vmilestone2_ event122');
         u.addEvent("event122");
-        // break;
       case '75':
         console.log('video_milestone event123');
         u.addEvent("event123");
-        // break;
       case '100':
         console.log('video_milestone event124');
         u.addEvent("event124");
+      default:
         break;
-    }
-    
-    let bvm = b['video_milestone'];
-    if (bvm == '25'){
-      console.log('video_milestone vmilestone1_ event121');
-      u.addEvent("event121");
-    } else if (bvm == 50){
-      console.log('video_milestone vmilestone1_ event122');
-      u.addEvent("event122");
-    } else if (bvm == '75'){
-      console.log('video_milestone vmilestone1_ event123');
-      u.addEvent("event123");
-    }else if (bvm == '100'){
-      console.log('video_milestone vmilestone1_ event124');
-      u.addEvent("event124");
     }
 
 //Pageview - Event1, Link Click - Event12
