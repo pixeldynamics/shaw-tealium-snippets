@@ -191,16 +191,19 @@ window.onPlayerStateChange = function(event) {
        playerCheckInterval = setInterval(mileStoneCheck, 50);
      }
      tealium_event = "video_start";
+     console.log("event_  video_start");
      playhead = 0;
    } else {
      //This will catch when the video playback is changed from not playing to playing
      tealium_event = "video_play";
+     console.log("event_  video_play");
      playhead = player.getCurrentTime().toString();
    }
    start[idx] = false;
 
  } else if (event.data == YT.PlayerState.PAUSED) {
    tealium_event = "video_pause";
+   console.log("event_  video_pause");
    playhead = player.getCurrentTime().toString();
 
  } else if (event.data == YT.PlayerState.ENDED) {
@@ -211,6 +214,7 @@ window.onPlayerStateChange = function(event) {
      setMileStones(idx);
    }
    tealium_event = "video_complete"; // utag
+   console.log("event_  video_complete");
    playhead = Math.round(player.getDuration()).toString();
  }
 

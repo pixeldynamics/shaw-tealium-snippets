@@ -209,45 +209,53 @@ switch(b['tealium_event']) {
 
 
 
-// @TODO WIP
+// @TODO WIP :Delete this if seen after oct 17, 2019
 // playhead
-switch(b['video_playhead']) {
-    case '25':
-      console.log('video_playhead event121');
-      u.addEvent("event121");
-      break;
-    case '50':
-      console.log('video_playhead event122');
-      u.addEvent("event122");
-      break;
-    case '75':
-      console.log('video_playhead event123');
-      u.addEvent("event123");
-      break;
-    case '100':
-      console.log('video_playhead event124');
-      u.addEvent("event124");
-      break;
-  }
-
-  switch(b['video_playhead']) {
-      case 25:
-        console.log('video_playhead v33milestone2_ event121');
-        u.addEvent("event121");
-        break;
-      case 50:
-        console.log('video_playhead v33milestone2_ event122');
-        u.addEvent("event122");
-        break;
-      case 75:
-        console.log('video_playhead 33 event123');
-        u.addEvent("event123");
-        break;
-      case 100:
-        console.log('video_playhead 33 event124');
-        u.addEvent("event124");
-        break;
-    }
+// switch(b['video_playhead']) {
+//     case '25':
+//       console.log('video_playhead event121');
+//       u.addEvent("event121");
+//       break;
+//     case '50':
+//       console.log('video_playhead event122');
+//       u.addEvent("event122");
+//       break;
+//     case '75':
+//       console.log('video_playhead event123');
+//       u.addEvent("event123");
+//       break;
+//     case '100':
+//       console.log('video_playhead event124');
+//       u.addEvent("event124");
+//       break;
+//   }
+//
+//   switch(b['video_playhead']) {
+//       case 25:
+//         console.log('video_playhead v33milestone2_ event121');
+//         u.addEvent("event121");
+//         break;
+//       case 50:
+//         console.log('video_playhead v33milestone2_ event122');
+//         u.addEvent("event122");
+//         break;
+//       case 75:
+//         console.log('video_playhead 33 event123');
+//         u.addEvent("event123");
+//         break;
+//       case 100:
+//         console.log('video_playhead 33 event124');
+//         u.addEvent("event124");
+//         break;
+//     }
+// @TODO: delete this
+// if(b['video_milestone']) {
+//   console.log("b['video_milestone'] exists");
+//   console.log('bmilestone' + b['video_milestone']);
+// } else if ('video_milestone'){
+//   console.log(" video_milestone  exists");
+//   console.log('bmilestone_' +  'video_milestone');
+// }
 
   // milestone handler
   switch(b['video_milestone']) {
@@ -272,14 +280,7 @@ switch(b['video_playhead']) {
         break;
     }
 
-  // @TODO: delete this
-  // if(b['video_milestone']) {
-  //   console.log("b['video_milestone'] exists");
-  //   console.log('bmilestone' + b['video_milestone']);
-  // } else if ('video_milestone'){
-  //   console.log(" video_milestone  exists");
-  //   console.log('bmilestone_' +  'video_milestone');
-  // }
+
 
 
 //Pageview - Event1, Link Click - Event12
