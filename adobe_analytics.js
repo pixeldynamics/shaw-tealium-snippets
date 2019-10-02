@@ -1,5 +1,10 @@
 //Do Plugins
 s.usePlugins = true;
+
+// variables for video
+let shaw_tealium_e = b['tealium_event']; // tealium event
+let bvm_handler = b['video_milestone'];  // milestone variable
+
 if (typeof(Visitor) != 'undefined') {
   s.visitor = Visitor.getInstance("5F34123F5245B4A70A490D45@AdobeOrg");
 }
@@ -174,13 +179,12 @@ s.getActionDepth=new Function("c",""
 + "if(!s.c_r(c)){v=1}if(s.c_r(c)){v=s.c_r(c);v++}"
 + "if(!s.c_w(c,v,t)){s.c_w(c,v,0)}return v;");
 
-// video event handler
-switch(b['tealium_event']) {
+  // video event handler
+  switch(shaw_tealium_e) {
     case 'video_start':
       u.addEvent("event120");
       break;
     case 'video_play':
-      // play event isnt called after video pause @TODO
       u.addEvent("event125");
       break;
     case 'video_pause':
@@ -189,21 +193,15 @@ switch(b['tealium_event']) {
   }
 
   // video milestone handler
-    let bvm_handler = b['video_milestone'];
-    console.log('bvm_handler type = ' + typeof bvm_handler);
-    if (bvm_handler === '25'){
-      console.log('video_milestone vmilestone1_ event121');
-      u.addEvent("event121");
-    } else if (bvm_handler === 50){
-      console.log('video_milestone vmilestone1_ event122');
-      u.addEvent("event122");
-    } else if (bvm_handler == '75'){
-      console.log('video_milestone vmilestone1_ event123');
-      u.addEvent("event123");
-    }else if (bvm_handler == '100'){
-      console.log('video_milestone vmilestone1_ event124');
-      u.addEvent("event124");
-    }
+  if (bvm_handler === '25'){
+    u.addEvent("event121");
+  } else if (bvm_handler === '50'){
+    u.addEvent("event122");
+  } else if (bvm_handler === '75'){
+    u.addEvent("event123");
+  }else if (bvm_handler === '100' || shaw_tealium_e == b['video_complete']){
+    u.addEvent("event124");
+  }
 
 //Pageview - Event1, Link Click - Event12
 if (a == 'view'){
