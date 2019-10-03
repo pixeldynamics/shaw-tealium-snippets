@@ -199,9 +199,15 @@ s.getActionDepth=new Function("c",""
     u.addEvent("event122");
   } else if (bvm_handler === '75'){
     u.addEvent("event123");
+  //  does't fire for video complete
   }else if (bvm_handler === '100' || shaw_tealium_e == b['video_complete']){
     u.addEvent("event124");
+  }else if (bvm_handler === '95'){
+    console.log('bvm_handler ==95');
+  }else if (bvm_handler === '99'){
+    console.log('bvm_handler ==99');
   }
+
 
 //Pageview - Event1, Link Click - Event12
 if (a == 'view'){
