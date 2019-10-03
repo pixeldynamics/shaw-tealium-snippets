@@ -212,7 +212,7 @@ window.onPlayerStateChange = function(event) {
    }
    tealium_event = "video_complete"; // utag
    playhead = Math.round(player.getDuration()).toString();
- } else if (perComplete == 100) {
+ } else if (perComplete == 95) {
    tealium_event = "video_complete"; // utag
    playhead = Math.round(player.getDuration()).toString();
    if (mileStones[idx].length > 0) {
