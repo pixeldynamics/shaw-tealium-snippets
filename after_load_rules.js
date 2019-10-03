@@ -120,7 +120,7 @@ if (jQuery('iframe[src*="youtube.com"]').length > 0) {
 }
 
 function setMileStones(i) {
-  mileStones[i] = [25, 50, 75, 95, 99, 100];
+  mileStones[i] = [25, 50, 75, 100];
 }
 let mileStones = [];
 if (window.iframe_id) {
@@ -184,26 +184,23 @@ window.onPlayerStateChange = function(event) {
  }
 
  tealium_event = "";
-
+ let perComplete = (player.getCurrentTime() / player.getDuration()) * 100;
  if (event.data == YT.PlayerState.PLAYING) {
    if (start[idx]) {
      if (mileStones[idx].length > 0) {
        playerCheckInterval = setInterval(mileStoneCheck, 50);
      }
      tealium_event = "video_start";
-     console.log("event_  video_start");
      playhead = 0;
    } else {
      //This will catch when the video playback is changed from not playing to playing
      tealium_event = "video_play";
-     console.log("event_  video_play");
      playhead = player.getCurrentTime().toString();
    }
    start[idx] = false;
 
  } else if (event.data == YT.PlayerState.PAUSED) {
    tealium_event = "video_pause";
-   console.log("event_  video_pause");
    playhead = player.getCurrentTime().toString();
 
  } else if (event.data == YT.PlayerState.ENDED) {
@@ -214,8 +211,16 @@ window.onPlayerStateChange = function(event) {
      setMileStones(idx);
    }
    tealium_event = "video_complete"; // utag
-   console.log("event_  video_complete");
    playhead = Math.round(player.getDuration()).toString();
+ } else if (perComplete == 100) {
+   tealium_event = "video_complete"; // utag
+   playhead = Math.round(player.getDuration()).toString();
+   if (mileStones[idx].length > 0) {
+     clearInterval(playerCheckInterval);
+     // reset in case visitor replays the video
+     playerCheckInterval = 0;
+     setMileStones(idx);
+   }
  }
 
  if (tealium_event) {
