@@ -1,0 +1,35 @@
+{
+  "name": "shaw-tealium-snippets",
+  "version": "1.0.0",
+  "description": "Shaw's tealium snippets",
+  "main": "adobe_analytics.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixeldynamics/shaw-tealium-snippets.git"
+  },
+  "keywords": [
+    "analytics",
+    "snippets"
+  ],
+  "author": "Digital Analytics",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^3.0.4",
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsdoc": "^15.8.0"
+  },
+  "husky": {
+    "hooks": {
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/pixeldynamics/shaw-tealium-snippets/issues"
+  },
+  "homepage": "https://github.com/pixeldynamics/shaw-tealium-snippets#readme"
+}
