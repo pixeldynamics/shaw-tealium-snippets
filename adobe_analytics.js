@@ -198,6 +198,7 @@ s.getActionDepth=new Function("c",""
   } else if (bvm_handler === '50'){
     u.addEvent("event122");
   } else if (bvm_handler === '75'){
+    utag.DB ('event123 logged');
     u.addEvent("event123");
   //  does't fire for video complete // adding handler
   }else if (bvm_handler === '100' || shaw_tealium_e == b['video_complete']){
