@@ -183,24 +183,24 @@ window.onPlayerStateChange = function(event) {
    }
  }
 
- tealium_event = "";
+ let shaw_t_event_ = "";
  let perComplete = (player.getCurrentTime() / player.getDuration()) * 100;
  if (event.data == YT.PlayerState.PLAYING) {
    if (start[idx]) {
      if (mileStones[idx].length > 0) {
        playerCheckInterval = setInterval(mileStoneCheck, 50);
      }
-     tealium_event = "video_start";
+     shaw_t_event_ = "video_start";
      playhead = 0;
    } else {
      //This will catch when the video playback is changed from not playing to playing
-     tealium_event = "video_play";
+     shaw_t_event_ = "video_play";
      playhead = player.getCurrentTime().toString();
    }
    start[idx] = false;
 
  } else if (event.data == YT.PlayerState.PAUSED) {
-   tealium_event = "video_pause";
+   shaw_t_event_ = "video_pause";
    playhead = player.getCurrentTime().toString();
 
  } else if (event.data == YT.PlayerState.ENDED) {
@@ -210,10 +210,10 @@ window.onPlayerStateChange = function(event) {
      playerCheckInterval = 0;
      setMileStones(idx);
    }
-   tealium_event = "video_complete"; // utag
+   shaw_t_event_ = "video_complete"; // utag
    playhead = Math.round(player.getDuration()).toString();
  } else if (perComplete == 95) {
-   tealium_event = "video_complete"; // utag
+   shaw_t_event_ = "video_complete"; // utag
    playhead = Math.round(player.getDuration()).toString();
    if (mileStones[idx].length > 0) {
      clearInterval(playerCheckInterval);
@@ -223,11 +223,11 @@ window.onPlayerStateChange = function(event) {
    }
  }
 
- if (tealium_event) {
-   utag.DB("Video event: " + tealium_event + ", video ID: " + window.iframe_id[idx]);
+ if (shaw_t_event_) {
+   utag.DB("Video event: " + shaw_t_event_ + ", video ID: " + window.iframe_id[idx]);
    let player_data = player.getVideoData() ;
    utag.link(
-   { tealium_event: tealium_event,
+   { tealium_event: shaw_t_event_,
      video_playhead: parseInt(playhead).toString(),
      video_id: player_data.video_id,
      video_length: Math.round(player.getDuration()).toString(),
