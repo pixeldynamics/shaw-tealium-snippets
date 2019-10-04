@@ -184,7 +184,7 @@ window.onPlayerStateChange = function(event) {
  }
 
  let shaw_t_event_ = "";
- let perComplete = (player.getCurrentTime() / player.getDuration()) * 100;
+ let perComplete = ((player.getCurrentTime() / player.getDuration()) * 100).toString;
  if (event.data == YT.PlayerState.PLAYING) {
    if (start[idx]) {
      if (mileStones[idx].length > 0) {
@@ -212,7 +212,7 @@ window.onPlayerStateChange = function(event) {
    }
    shaw_t_event_ = "video_complete"; // utag
    playhead = Math.round(player.getDuration()).toString();
- } else if (perComplete == 95) {
+ } else if (perComplete == '95') {
    shaw_t_event_ = "video_complete"; // utag
    playhead = Math.round(player.getDuration()).toString();
    if (mileStones[idx].length > 0) {
