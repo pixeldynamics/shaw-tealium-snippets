@@ -23,5 +23,16 @@ $RECYCLE.BIN/
 # =================================
 
 node_modules/
-.eslintrc.js
 package-lock.json
+.github
+docs
+archive
+dist/
+manifest/
+*.log
+*.gz
+npm-debug.log*
+.DS_Store
+mb.pid
+.idea
+.cache
