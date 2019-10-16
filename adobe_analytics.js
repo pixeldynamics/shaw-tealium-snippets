@@ -192,7 +192,7 @@ s.getActionDepth=new Function("c",""
       break;
   }
 
-localStorage.setItem('check_video_complete', JSON.stringify(b['video_play']));
+localStorage.setItem('check_video_play', JSON.stringify(b['video_play']));
 localStorage.setItem('check_video_complete', JSON.stringify(b['video_complete']));
 
   // video milestone handler @TODO: use switch
