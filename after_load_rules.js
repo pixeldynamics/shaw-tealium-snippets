@@ -252,7 +252,7 @@ window.onPlayerStateChange = function(event) {
       if (next_ms <= percComplete) {
         mileStones[idx].shift();
         utag.DB("Video event: video_milestone, video ID: " + window.iframe_id[idx] + ", Milestone=" + percComplete.toFixed());
-        shawDebugger("Video event: video_milestone, video ID: " + window.iframe_id[idx] + ", Milestone=" + percComplete.toFixed());
+        localStorage.setItem('check_video_milestone', "Video event: video_milestone, video ID: " + window.iframe_id[idx] + ", Milestone=" + percComplete.toFixed());
         let player_data = player.getVideoData() ;
         utag.link(
         { tealium_event: 'video_milestone',
@@ -267,13 +267,3 @@ window.onPlayerStateChange = function(event) {
     }
   }
 };
-
-
-// Debug function like utagDB
-function shawDebugger(debugText) {
-    var tiqDebugMode = document.cookie.toLowerCase().indexOf('utagdb=true') > -1 ? true : false;
-    if (tiqDebugMode && debugText) {
-        console.debug(debugText);
-        console.log(debugText);
-    }
-}
