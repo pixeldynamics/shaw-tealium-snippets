@@ -182,12 +182,15 @@ s.getActionDepth=new Function("c",""
   // video event handler
   switch(shaw_tealium_e) {
     case 'video_start':
+      localStorage.setItem('check_video_start', JSON.stringify(b['video_start']));
       u.addEvent("event120");
       break;
     case 'video_play':
+      localStorage.setItem('check_video_play', JSON.stringify(b['video_play']));
       u.addEvent("event125");
       break;
     case 'video_pause':
+      localStorage.setItem('check_video_pause', JSON.stringify(b['video_pause']));
       u.addEvent("event126");
       break;
   }
@@ -202,14 +205,21 @@ s.getActionDepth=new Function("c",""
     utag.DB ('event123 logged');
     u.addEvent("event123");
   //  does't fire for video complete // adding handler
+}else if (bvm_handler === '80'){// @TODO: delete this 
+    localStorage.setItem('check_video_100', JSON.stringify(b['video_complete']));
+    u.addEvent("event124");
+  }else if (bvm_handler === '100'){
+    localStorage.setItem('check_video_100', JSON.stringify(b['video_complete']));
+    u.addEvent("event124");
   }else if (bvm_handler === '100' || shaw_tealium_e == b['video_complete']){
+    localStorage.setItem('check_video_complete', JSON.stringify(b['video_complete']));
     u.addEvent("event124");
   }
 
-  localStorage.setItem('check_video_play', JSON.stringify(b['video_play']));
-  localStorage.setItem('check_video_complete', JSON.stringify(b['video_complete']));
-  localStorage.setItem('check_video_start', JSON.stringify(b['video_start']));
-  localStorage.setItem('check_video_pause', JSON.stringify(b['video_pause']));
+
+
+
+
 
 //Pageview - Event1, Link Click - Event12
 if (a == 'view'){
