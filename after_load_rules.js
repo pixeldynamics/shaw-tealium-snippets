@@ -120,7 +120,7 @@ if (jQuery('iframe[src*="youtube.com"]').length > 0) {
 }
 
 function setMileStones(i) {
-  mileStones[i] = [25, 50, 75, 100];
+  mileStones[i] = [25, 50, 75, 80, 100];
 }
 let mileStones = [];
 if (window.iframe_id) {

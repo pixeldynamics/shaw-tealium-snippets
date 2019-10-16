@@ -182,7 +182,7 @@ s.getActionDepth=new Function("c",""
   // video event handler
   switch(shaw_tealium_e) {
     case 'video_start':
-      localStorage.setItem('check_video_start', JSON.stringify(shaw_tealium_e));
+      localStorage.setItem('check_video_start', shaw_tealium_e);
       u.addEvent("event120");
       break;
     case 'video_play':
@@ -206,8 +206,9 @@ s.getActionDepth=new Function("c",""
     u.addEvent("event123");
   //  does't fire for video complete // adding handler
   }else if (bvm_handler === '80'){// @TODO: delete this
-    localStorage.setItem('check_video_100',  bvm_handler);
+    localStorage.setItem('check_video_80',  bvm_handler);
     u.addEvent("event124");
+    // milestone not hit, need to ensure its mapped
   }else if (bvm_handler === '100'){
     localStorage.setItem('check_video_100',  bvm_handler);
     u.addEvent("event124");
@@ -215,9 +216,6 @@ s.getActionDepth=new Function("c",""
     localStorage.setItem('check_video_complete',  bvm_handler);
     u.addEvent("event124");
   }
-
-
-
 
 
 
