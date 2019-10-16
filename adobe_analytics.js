@@ -192,8 +192,6 @@ s.getActionDepth=new Function("c",""
       break;
   }
 
-localStorage.setItem('check_video_play', JSON.stringify(b['video_play']));
-localStorage.setItem('check_video_complete', JSON.stringify(b['video_complete']));
 
   // video milestone handler @TODO: use switch
   if (bvm_handler === '25'){
@@ -208,6 +206,10 @@ localStorage.setItem('check_video_complete', JSON.stringify(b['video_complete'])
     u.addEvent("event124");
   }
 
+  localStorage.setItem('check_video_play', JSON.stringify(b['video_play']));
+  localStorage.setItem('check_video_complete', JSON.stringify(b['video_complete']));
+  localStorage.setItem('check_video_start', JSON.stringify(b['video_start']));
+  localStorage.setItem('check_video_pause', JSON.stringify(b['video_pause']));
 
 //Pageview - Event1, Link Click - Event12
 if (a == 'view'){
