@@ -197,6 +197,8 @@ s.getActionDepth=new Function("c",""
 
 
   // video milestone handler @TODO: use switch
+  // @TODO: add 95 milestone in leu of 80 and remap
+  // if new event given else map to event124
   if (bvm_handler === '25'){
     u.addEvent("event121");
   } else if (bvm_handler === '50'){
@@ -205,9 +207,9 @@ s.getActionDepth=new Function("c",""
     utag.DB ('event123 logged');
     u.addEvent("event123");
   //  does't fire for video complete // adding handler
-  }else if (bvm_handler === '80'){// @TODO: delete this
-    localStorage.setItem('check_video_80',  bvm_handler);
-    u.addEvent("event124");
+  }else if (bvm_handler === '95'){// @TODO: delete this
+    localStorage.setItem('check_video_95',  bvm_handler);
+    // u.addEvent("event124");
     // milestone not hit, need to ensure its mapped
   }else if (bvm_handler === '100'){
     localStorage.setItem('check_video_100',  bvm_handler);
