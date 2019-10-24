@@ -232,7 +232,7 @@ window.onPlayerStateChange = function(event) {
      video_id: player_data.video_id,
      video_length: Math.round(player.getDuration()).toString(),
      video_name: player_data.title,
-     perComplete: perComplete,
+     per_complete: perComplete,
      video_platform: 'YouTube'
    });
  }
@@ -262,7 +262,7 @@ window.onPlayerStateChange = function(event) {
           video_length: duration.toString(),
           video_milestone: next_ms.toString(),
           video_name: player_data.title,
-          perComplete: perComplete,
+          per_complete: perComplete,
           video_platform: 'YouTube'
         });
       }
