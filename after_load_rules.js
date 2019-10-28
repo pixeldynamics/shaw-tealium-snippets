@@ -37,14 +37,6 @@ if(audience_lst.length > 0) {
     b.audience_qualifier = aid;
 }
 
-
-// @TODO: WIP:  url toggle
-if(location.search.indexOf('tshaw=off') > -1){
-  window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};
-  window.utag_cfg_ovrd.noload = true;
-}
-
-
 // @ TODO there seems to be work still going on regarding config for this,
 // is this code currently needed or can it be commented out? -Obi
 //Clicktale Mapping
