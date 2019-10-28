@@ -297,6 +297,14 @@ window.aid_prioritize = function(qualified_audiences) {
     //   document.cookie = "QSI_HistorySession=; expires=Fri, 31 Dec 1990 23:59:59 GMT";
     // }
 
+
+    // @TODO: WIP:  url toggle
+    if(location.search.indexOf('tshaw=off') > -1){
+      window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};
+      window.utag_cfg_ovrd.noload = true;
+    }
+
+
     // @ TODO is this code needed? awaiting decommision? -Obi
     //ION No view
     if(document.domain == 'shaw.postclickmarketing.com' || document.domain == 'shop.shaw.ca' || document.domain == 'shop.shawbusiness.ca' || document.domain == 'shop.shawdirect.ca') {
