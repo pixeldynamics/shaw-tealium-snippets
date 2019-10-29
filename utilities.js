@@ -298,7 +298,8 @@ window.aid_prioritize = function(qualified_audiences) {
     // }
     // url toggle
      if(window.location.href.indexOf('tshaw=off') > -1 || location.search.indexOf('tshaw=off') > -1){
-       window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};
+        // window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};
+       window.utag_cfg_ovrd.dom_complete = true;
        window.utag_cfg_ovrd.noload = true;
      }
 
