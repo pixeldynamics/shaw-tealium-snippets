@@ -297,7 +297,7 @@ window.aid_prioritize = function(qualified_audiences) {
     //   document.cookie = "QSI_HistorySession=; expires=Fri, 31 Dec 1990 23:59:59 GMT";
     // }
     // url toggle
-     if(location.search.indexOf('tshaw=off') > -1){
+     if(window.location.href.indexOf('tshaw=off') > -1 || location.search.indexOf('tshaw=off') > -1){
        window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};
        window.utag_cfg_ovrd.noload = true;
      }
