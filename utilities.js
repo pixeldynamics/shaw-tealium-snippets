@@ -1,9 +1,9 @@
 /* Prioritization Function */
 window.aid_prioritize = function(qualified_audiences) {
-    if(typeof utag_data != 'undefined' && typeof utag_data.audience_id !== 'undefined' && utag_data.audience_id != '') {
+    if(typeof utag_data != 'undefined' && typeof utag_data.audience_id !== 'undefined' && utag_data.audience_id !== '') {
         qualified_audiences.push(utag_data.audience_id);
     }
-    else if(typeof b !== 'undefined' && typeof b.audience_id !== 'undefined' && b.audience_id != '') {
+    else if(typeof b !== 'undefined' && typeof b.audience_id !== 'undefined' && b.audience_id !== '') {
         qualified_audiences.push(b.audience_id);
     }
     /*list*/
@@ -207,16 +207,16 @@ window.aid_prioritize = function(qualified_audiences) {
         trackObj["timestamp"] = utag_data["timestamp"];
         trackObj["lead_form_name"] = utag_data["lead_form_name"] || "";
         trackObj["referring_url"] = utag_data["referring_url"];
-          trackObj["timestamp"] = utag_data["timestamp"];
-          trackObj["site_language"] = utag_data["site_language"];
-          trackObj["platform"] = utag_data["platform"];
-          trackObj["page_section_l2"] = utag_data["page_section_l2"];
-          trackObj["page_section_l3"] = utag_data["page_section_l3"];
-          trackObj["page_section_l4"] = utag_data["page_section_l4"];
-          trackObj["page_section_l5"] = utag_data["page_section_l5"];
-          trackObj["taxonomy_level"] = utag_data["taxonomy_level"];
-          trackObj["user_login_state"] = utag_data["user_login_state"];
-          trackObj["new_repeat"] = utag_data["new_repeat"] = s.getNewRepeat(60);
+        trackObj["timestamp"] = utag_data["timestamp"];
+        trackObj["site_language"] = utag_data["site_language"];
+        trackObj["platform"] = utag_data["platform"];
+        trackObj["page_section_l2"] = utag_data["page_section_l2"];
+        trackObj["page_section_l3"] = utag_data["page_section_l3"];
+        trackObj["page_section_l4"] = utag_data["page_section_l4"];
+        trackObj["page_section_l5"] = utag_data["page_section_l5"];
+        trackObj["taxonomy_level"] = utag_data["taxonomy_level"];
+        trackObj["user_login_state"] = utag_data["user_login_state"];
+        trackObj["new_repeat"] = utag_data["new_repeat"] = s.getNewRepeat(60);
         var tObjStr = $this.attr("data-trackobj") || "{}";
         var tObj = JSON.parse(tObjStr);
         var tObjEvents = "";
@@ -258,7 +258,7 @@ window.aid_prioritize = function(qualified_audiences) {
     function order_total() {
         var total = 0, sale_price = utag_data.product_sale_price || [];
         sale_price.forEach(function(value) { total += Number(value); });
-          return total;
+        return total;
     }
     function order_id() {
         return utag_data.order_id || false;
@@ -296,14 +296,11 @@ window.aid_prioritize = function(qualified_audiences) {
     // if (document.cookie.indexOf("QSI_HistorySession") >= 0) {
     //   document.cookie = "QSI_HistorySession=; expires=Fri, 31 Dec 1990 23:59:59 GMT";
     // }
-
-
-    // @TODO: WIP:  url toggle
-    if(location.search.indexOf('tshaw=off') > -1){
-      window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};
-      window.utag_cfg_ovrd.noload = true;
-    }
-
+    // url toggle
+     if(location.search.indexOf('tshaw=off') > -1){
+       window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};
+       window.utag_cfg_ovrd.noload = true;
+     }
 
     // @ TODO is this code needed? awaiting decommision? -Obi
     //ION No view
