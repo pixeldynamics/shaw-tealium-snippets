@@ -296,6 +296,11 @@ window.aid_prioritize = function(qualified_audiences) {
     // if (document.cookie.indexOf("QSI_HistorySession") >= 0) {
     //   document.cookie = "QSI_HistorySession=; expires=Fri, 31 Dec 1990 23:59:59 GMT";
     // }
+    // url toggle
+     if(location.search.indexOf('tshaw=off') > -1){
+       window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};
+       window.utag_cfg_ovrd.noload = true;
+     }
 
     // @ TODO is this code needed? awaiting decommision? -Obi
     //ION No view
