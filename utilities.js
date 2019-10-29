@@ -163,7 +163,7 @@ window.aid_prioritize = function(qualified_audiences) {
         }
     })(jQuery, window);
 
-    //Legacy Click Tracking
+    //Legacy Click Tracking @TODO: Remove ?
     window.clickTrackEvent = function(el) {
         console.log("clickTrackEvent function");
         var $this = $(el),
