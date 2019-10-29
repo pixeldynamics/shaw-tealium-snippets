@@ -84,7 +84,12 @@ if(pmc != null && pmc.eVar1 == 'confirmation') {
 	}
 }
 
-
+// url toggle
+     if(window.location.href.indexOf('tshaw=off') > -1 || location.search.indexOf('tshaw=off') > -1){
+       window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};	 
+       window.utag_cfg_ovrd.dom_complete = true;
+       window.utag_cfg_ovrd.noload = true;
+     }
 // @ TODO is this code needed after the decommission? -Obi
 //ION Flow - Event Listener
 jQuery(document.body).on("action", function(p) {
