@@ -65,13 +65,12 @@ window.aid_prioritize = function(qualified_audiences) {
         return decodeURIComponent(match[1].replace(/\+/g, ' '));
     }
 
-    //Placeholder moch function for legacy GeoIP Service
+    //Placeholder mock function for legacy GeoIP Service
     // @ TODO is this code needed? Should a story be created? -Obi
     function geoip() {
         return false;
     }
 
-    // @ TODO is this code needed? -Obi - Yes! Its needed - Mike
     //Set Optimizely ID for Adobe
     try {
         if (typeof(optimizely) !== 'undefined') {
@@ -269,7 +268,7 @@ window.aid_prioritize = function(qualified_audiences) {
     function rgu_count() {
         var total = 0, rgus = utag_data.product_rgu || [];
         rgus.forEach(function(value) { total += !isNaN(value) ? Number(value) : 0 });
-          return total;
+        return total;
     }
     function product_names() {
         var product_names = utag_data.product_name || [];
@@ -294,11 +293,11 @@ window.aid_prioritize = function(qualified_audiences) {
     }
 
     // url toggle
-     if(window.location.href.indexOf('tshaw=off') > -1 || location.search.indexOf('tshaw=off') > -1){
-        // window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};
-       window.utag_cfg_ovrd.dom_complete = true;
-       window.utag_cfg_ovrd.noload = true;
-     }
+    if(window.location.href.indexOf('tshaw=off') > -1 || location.search.indexOf('tshaw=off') > -1){
+      // window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};
+      window.utag_cfg_ovrd.dom_complete = true;
+      window.utag_cfg_ovrd.noload = true;
+    }
 
     // @ TODO archive these to own file
     //ION No view
