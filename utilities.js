@@ -6,6 +6,7 @@ window.aid_prioritize = function(qualified_audiences) {
     else if(typeof b !== 'undefined' && typeof b.audience_id !== 'undefined' && b.audience_id !== '') {
         qualified_audiences.push(b.audience_id);
     }
+    
     /*list*/
     var list = [
             {name: 'Existing Customer 2YVP Renewal', audience_id: '333352', priority: 1},
@@ -58,7 +59,6 @@ window.aid_prioritize = function(qualified_audiences) {
         else { return "";}
     }
 
-
     //Get URL Parameters
     function get_url_param(name) {
         var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
@@ -66,7 +66,7 @@ window.aid_prioritize = function(qualified_audiences) {
     }
 
     //Placeholder mock function for legacy GeoIP Service
-    // @ TODO is this code needed? Should a story be created? -Obi
+    // @ TODO remove after migration
     function geoip() {
         return false;
     }
@@ -253,40 +253,51 @@ window.aid_prioritize = function(qualified_audiences) {
         utag.link(trackObj);
     }
 
-    //Order Data Utilities
+    //
+    // Order Data Utilities
+    //
     function order_total() {
         var total = 0, sale_price = utag_data.product_sale_price || [];
         sale_price.forEach(function(value) { total += Number(value); });
         return total;
     }
+
     function order_id() {
         return utag_data.order_id || false;
     }
+
     function order_currency() {
         return utag_data.order_currency || 'CAD';
     }
+
     function rgu_count() {
         var total = 0, rgus = utag_data.product_rgu || [];
         rgus.forEach(function(value) { total += !isNaN(value) ? Number(value) : 0 });
         return total;
     }
+
     function product_names() {
         var product_names = utag_data.product_name || [];
         return product_names.join(',') || false;
     }
+
     function product_order_types() {
         var order_type = utag_data.product_order_type || [];
         return order_type.join(',') || false;
     }
+
     function lead_form_name() {
         return utag_data.lead_form_name || false;
     }
+
     function lead_form_name_clean() {
         return utag_data.lead_form_name.replace(/[^a-zA-Z 0-9]+/g, '.') || false;
     }
+
     function eoid() {
         return utag_data['qp.eoId'] || false;
     }
+
     function is_thanks() {
       if (order_id() !== false || (/thankyou/i).test(utag_data.form_step)) { return true; }
       return false;
@@ -298,14 +309,3 @@ window.aid_prioritize = function(qualified_audiences) {
       window.utag_cfg_ovrd.dom_complete = true;
       window.utag_cfg_ovrd.noload = true;
     }
-
-    // @ TODO archive these to own file
-    //ION No view
-    // if(document.domain == 'shaw.postclickmarketing.com' || document.domain == 'shop.shaw.ca' || document.domain == 'shop.shawbusiness.ca' || document.domain == 'shop.shawdirect.ca') {
-    //     window.utag_cfg_ovrd = { noview: true };
-    // }
-
-    // unset QSI_HistorySession cookie
-    // if (document.cookie.indexOf("QSI_HistorySession") >= 0) {
-    //   document.cookie = "QSI_HistorySession=; expires=Fri, 31 Dec 1990 23:59:59 GMT";
-    // }
