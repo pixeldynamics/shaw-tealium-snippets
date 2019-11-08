@@ -1,5 +1,4 @@
-// @ TODO is this code needed? -Obi
-//Exceptions object value doesnt matter
+// Exceptions object value doesnt matter
 var exceptions = {
     'gclid' : 1,
     'qp.gclid': 1
