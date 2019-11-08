@@ -219,10 +219,8 @@ s.getActionDepth=new Function("c",""
     u.addEvent("event124");
   }
 
-
-
 //Pageview - Event1, Link Click - Event12
-if (a == 'view'){
+  if (a == 'view'){
     /*b.page_load_flag = "true";*/
     u.addEvent("event1");
   } else if (a == 'link'){
@@ -230,8 +228,7 @@ if (a == 'view'){
     u.addEvent("event12");
   }
 
-//Parse Timestamp (TODO: Make time to fix this old junk)
-// @ TODO is this code needed? -Obi
+// Parse Timestamp (@TODO: fix this)
 var days = {
   'sun':'sunday'
   ,'mon':'monday'
@@ -252,16 +249,15 @@ for(var i=0; i<time_list.length; i++) {
 var hour = parseInt(in_time.split(':')[0]);
 var ampm = 'am';
 
-// @ TODO refactor this -Obi
-if(hour==24) {
+if(hour == 24) {
   hour = 12;
   ampm = 'am';
 }
-else if(hour==12) {
+else if(hour == 12) {
   hour = 12;
   ampm = 'pm';
 }
-else if(hour>12) {
+else if(hour > 12) {
   hour = hour-12;
   ampm = 'pm';
 }
