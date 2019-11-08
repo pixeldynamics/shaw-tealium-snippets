@@ -63,43 +63,6 @@ window.tealium_enrichment = function(data) {
         b.audience_qualifier = aid;
   };
 
-//ION Pixel Conversion (Not sure if this is still needed???)
-if(pmc != null && pmc.eVar1 == 'confirmation') {
-	try {
-		var script = document.createElement('script');
-		script.type = 'text/javascript';
-		script.src = 'https://shaw.postclickmarketing.com/Outside/liveball.js';
-
-		$("body").append(script);
-
-	} catch(e) {
-
-	}
-	try {
-	  liveballRecognize("shaw.postclickmarketing.com");
-	  liveballConvert();
-	}
-	catch(e) {
-
-	}
-}
-
-// @ TODO is this code needed after the decommission? -Obi
-//ION Flow - Event Listener
-jQuery(document.body).on("action", function(p) {
-    if (p.type === "action" && p.event === "flowClick") {
-        var el = document.createElement("a");
-        var de = document.createAttribute("data-event");
-        var dv = document.createAttribute("data-value");
-        de.value = 'navigationAction';
-        dv.value = p.value;
-        el.setAttributeNode(de);
-        el.setAttributeNode(dv);
-        /*call global click track function with dummy element*/
-        window.clickTrackEvent(el);
-    }
-});
-
 
 // Tealium Tracking Code for YouTube iframe embeds
 if (jQuery('iframe[src*="youtube.com"]').length > 0) {
@@ -268,3 +231,43 @@ window.onPlayerStateChange = function(event) {
     }
   }
 };
+
+
+
+
+//ION Pixel Conversion (Not sure if this is still needed???)
+// if(pmc != null && pmc.eVar1 == 'confirmation') {
+// 	try {
+// 		var script = document.createElement('script');
+// 		script.type = 'text/javascript';
+// 		script.src = 'https://shaw.postclickmarketing.com/Outside/liveball.js';
+//
+// 		$("body").append(script);
+//
+// 	} catch(e) {
+//
+// 	}
+// 	try {
+// 	  liveballRecognize("shaw.postclickmarketing.com");
+// 	  liveballConvert();
+// 	}
+// 	catch(e) {
+//
+// 	}
+// }
+
+// @ TODO is this code needed after the decommission? -Obi
+//ION Flow - Event Listener
+// jQuery(document.body).on("action", function(p) {
+//     if (p.type === "action" && p.event === "flowClick") {
+//         var el = document.createElement("a");
+//         var de = document.createAttribute("data-event");
+//         var dv = document.createAttribute("data-value");
+//         de.value = 'navigationAction';
+//         dv.value = p.value;
+//         el.setAttributeNode(de);
+//         el.setAttributeNode(dv);
+//         /*call global click track function with dummy element*/
+//         window.clickTrackEvent(el);
+//     }
+// });
