@@ -15,7 +15,7 @@ window.aid_prioritize = function(qualified_audiences) {
             {name: 'Existing Customer 2YVP Renewal 2P3P', audience_id: '333370', priority: 4},
             {name: 'Existing Customer 2YVP Renewal 2P3P', audience_id: '333369', priority: 5},
             {name: 'My Shaw Pod Upsell', audience_id: '333357', priority: 6},
-            {name: 'Existing Customer BlueCurve TV Launch', audience_id: '333358', priority: 7},
+            {name: 'Existing Customer BlueCurve TV Launch', audience_id: '333359', priority: 7},
             {name: 'Existing Customer BlueCurve TV Launch', audience_id: '333358', priority: 8},
             {name: '3P Internet TV Phone Customers', audience_id: '333336', priority: 9},
             {name: '2P Internet Phone Customers', audience_id: '333335', priority: 10},
