@@ -214,9 +214,9 @@ s.getActionDepth=new Function("c",""
   }else if (bvm_handler === '100'){
     localStorage.setItem('check_video_100',  bvm_handler);
     u.addEvent("event124");
-  }else if (bvm_handler === '100' || shaw_tealium_e == b['video_complete']){
+  }else if (shaw_tealium_e == b['video_complete']){
     localStorage.setItem('check_video_complete',  bvm_handler);
-    u.addEvent("event124");
+    // u.addEvent("event124");
   }
 
 //Pageview - Event1, Link Click - Event12
