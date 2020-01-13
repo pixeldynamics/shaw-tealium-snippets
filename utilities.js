@@ -40,7 +40,7 @@ window.aid_prioritize = function(qualified_audiences) {
             {name: '1P Internet Look-a-like',audience_id: '111119',priority: 29},
             {name: 'Lower Mainland Edmonton',audience_id: '111150',priority: 30},
             {name: 'Exclusion - Existing Customer Signals and Current Employees',audience_id: '111110',priority: 31},
-            {name: 'Business_SmartSurveillance & SmartSecurity  ',audience_id: '222234',priority: 32},
+            {name: 'Business_SmartSurveillance & SmartSecurity',audience_id: '222234',priority: 32},
             {name: 'Business_SmartWiFi Audience',audience_id: '222228',priority: 33},
             {name: 'Business_SmartVoice Audience',audience_id: '222229',priority: 34},
             {name: 'Business_SmartWiFI & SmartVoice Audience',audience_id: '222230',priority: 35},
@@ -49,7 +49,7 @@ window.aid_prioritize = function(qualified_audiences) {
             {name: 'Business_Internet &Phone Audience',audience_id: '222233',priority: 38},
             {name: 'Business_General Remarketing',audience_id: '222227',priority: 39},
         ],
-        
+
         //qualified_audiences = ['111119', '111123', '111114', '2P/3P Look-a-like'], //Accepts Segment Name or Audience ID from origin.
         audience_match = list.filter(function (obj) {
             return (qualified_audiences.indexOf(obj.name) > -1 || qualified_audiences.indexOf(obj.audience_id) > -1);
