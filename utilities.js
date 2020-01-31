@@ -6,7 +6,7 @@ window.aid_prioritize = function(qualified_audiences) {
     else if(typeof b !== 'undefined' && typeof b.audience_id !== 'undefined' && b.audience_id !== '') {
         qualified_audiences.push(b.audience_id);
     }
-    
+
     /*list*/
     var list = [
             {name: 'Existing Customer 2YVP Renewal', audience_id: '333352', priority: 1},
@@ -198,6 +198,9 @@ window.aid_prioritize = function(qualified_audiences) {
             }
             textOfClick = textOfClick + "|tab|" + showHide;
         }
+        // @TODO: fix this logic, its causing a minor bug related to
+        // https://shawcommunications.atlassian.net/browse/SCP-9643
+        // this touches legacy code so handle with care
         textOfClick = textOfClick.replace(/[^\w,\|]+/gi, "-").replace(/\b_|_\b/gi, "").toLowerCase();
         var trackObj = {
             navigation_click: "true",
