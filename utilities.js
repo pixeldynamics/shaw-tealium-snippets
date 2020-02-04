@@ -26,7 +26,7 @@ window.aid_prioritize = function(qualified_audiences) {
             {name: '1P Phone Customers', audience_id: '333332', priority: 15},
             {name: '1P Internet Customers', audience_id: '333331', priority: 16},
             {name: '1P TV Customers', audience_id: '333330', priority: 17},
-            {name: 'Winback Promotion', audience_id: '111151', priority: 18},
+            {name: 'Winback Promotion',audience_id: '111151', priority: 18},
             {name: 'SK East',audience_id: '111147',priority: 19},
             {name: 'Small Markets',audience_id: '111118',priority: 20},
             {name: 'Price Conscious 2P3P - Tier 2',audience_id: '111124',priority: 21},
