@@ -6,7 +6,7 @@ window.aid_prioritize = function(qualified_audiences) {
     else if(typeof b !== 'undefined' && typeof b.audience_id !== 'undefined' && b.audience_id !== '') {
         qualified_audiences.push(b.audience_id);
     }
-    
+
     /*list*/
     var list = [
             {name: 'Existing Customer 2YVP Renewal', audience_id: '333352', priority: 1},
@@ -313,8 +313,13 @@ window.aid_prioritize = function(qualified_audiences) {
     }
 
     function is_thanks() {
-      if (order_id() !== false || (/thankyou/i).test(utag_data.form_step)) { return true; }
-      return false;
+      if (utag_data.form_name === 'ecomm-creditcheck' || order_id() !== false || (/thankyou/i).test(utag_data.form_step))
+      {
+        return true;
+      }
+      else{
+        return false;
+      }
     }
 
     // url toggle
