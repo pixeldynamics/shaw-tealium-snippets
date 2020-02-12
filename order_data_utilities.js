@@ -1,6 +1,6 @@
 function order_total() {
     var total = 0, sale_price = utag_data.product_sale_price || [];
-	sale_price.forEach(function(value) { total += Number(value); });
+	  sale_price.forEach(function(value) { total += Number(value); });
   	return total;
 }
 function order_id() {
@@ -10,8 +10,8 @@ function order_currency() {
     return utag_data.order_currency || 'CAD';
 }
 function rgu_count() {
-	var total = 0, rgus = utag_data.product_rgu || [];
-	rgus.forEach(function(value) { total += !isNaN(value) ? Number(value) : 0 });
+  	var total = 0, rgus = utag_data.product_rgu || [];
+  	rgus.forEach(function(value) { total += !isNaN(value) ? Number(value) : 0 });
   	return total;
 }
 function product_names() {
@@ -32,7 +32,7 @@ function eoid() {
     return utag_data['qp.eoId'] || false;
 }
 function is_thanks() {
-  if (utag_data.form_name === 'ecomm-creditcheck' || order_id() !== false || (/thankyou/i).test(utag_data.form_step))
+  if (utag_data.form_name !== 'ecomm-creditcheck' || order_id() !== false || (/thankyou/i).test(utag_data.form_step))
   {
     return true;
   }
