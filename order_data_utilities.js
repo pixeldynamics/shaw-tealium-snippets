@@ -32,8 +32,11 @@ function eoid() {
     return utag_data['qp.eoId'] || false;
 }
 function is_thanks() {
-  if (utag_data.form_name !== 'ecomm-creditcheck' || order_id() !== false || (/thankyou/i).test(utag_data.form_step))
-  {
+  // to accomodate creditcheck
+  if(utag_data.form_name === 'ecomm-creditcheck'){
+     return false;
+  }
+  if (order_id() !== false || (/thankyou/i).test(utag_data.form_step)){
     return true;
   }
   else{
