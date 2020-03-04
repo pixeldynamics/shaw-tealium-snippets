@@ -213,10 +213,10 @@ s.getActionDepth=new Function("c",""
     // milestone not hit, need to ensure its mapped
   }else if (bvm_handler === '100'){
     localStorage.setItem('check_video_100',  bvm_handler);
-    u.addEvent("event124");
+    // u.addEvent("event124");
   }else if (shaw_tealium_e == b['video_complete']){
     localStorage.setItem('check_video_complete',  bvm_handler);
-    // u.addEvent("event124");
+    u.addEvent("event124");
   }
 
 //Pageview - Event1, Link Click - Event12
