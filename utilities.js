@@ -38,7 +38,7 @@ window.aid_prioritize = function(qualified_audiences) {
           {name: 'Price Conscious 2P3P - Tier 1',audience_id: '111123',priority: 27},
           {name: 'Price Conscious 1P - Tier 1',audience_id: '111144',priority: 28},
           {name: 'Bundlers - Tier 1',audience_id: '111143',priority: 29},
-          {name: 'Internet Lovers - Tier 1',audience_id: '111129',priority: 30},,
+          {name: 'Internet Lovers - Tier 1',audience_id: '111129',priority: 30},
           {name: 'Lower Mainland Edmonton',audience_id: '111150',priority: 31},
           {name: 'Exclusion - Existing Customer Signals and Current Employees',audience_id: '111110',priority: 32},
           {name: 'Business_SmartSurveillance & SmartSecurity',audience_id: '222234',priority: 33},
