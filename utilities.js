@@ -331,3 +331,7 @@ window.aid_prioritize = function(qualified_audiences) {
     window.utag_cfg_ovrd.dom_complete = true;
     window.utag_cfg_ovrd.noload = true;
   }
+
+  
+  // PII masking using the default variable ClickTalePIISelector
+  window.ClickTalePIISelector="#firstName,#lastName, #contactEmail,#contactPhoneNumber";

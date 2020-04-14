@@ -37,8 +37,8 @@ if(audience_lst.length > 0) {
     b.audience_qualifier = aid;
 }
 
-// PII masking using the default variable ClickTalePIISelector
-window.ClickTalePIISelector="#firstName,#lastName, #contactEmail,#contactPhoneNumber";
+// // PII masking using the default variable ClickTalePIISelector
+// window.ClickTalePIISelector="#firstName,#lastName, #contactEmail,#contactPhoneNumber";
 
 // @ TODO there seems to be work still going on regarding config for this,
 // is this code currently needed or can it be commented out? -Obi
