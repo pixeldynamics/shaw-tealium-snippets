@@ -57,6 +57,7 @@ function s_doPlugins(s) {
     s.eVar109 = b['video_name'];
     s.eVar110 = b['video_length'];
     s.eVar111 = b['video_id'];
+    // s.eVar111 = b['video_id'];
 }
 s.doPlugins = s_doPlugins
 
@@ -206,18 +207,15 @@ s.getActionDepth=new Function("c",""
   } else if (bvm_handler === '75'){
     utag.DB ('event123 logged');
     u.addEvent("event123");
-  //  does't fire for video complete // adding handler
-  }else if (bvm_handler === '95'){// @TODO: delete this
-    localStorage.setItem('check_video_95',  bvm_handler);
-    // u.addEvent("event124");
-    // milestone not hit, need to ensure its mapped
-  }else if (bvm_handler === '100'){
+  } else if (bvm_handler === '100'){
     localStorage.setItem('check_video_100',  bvm_handler);
-    // u.addEvent("event124");
-  }else if (shaw_tealium_e == b['video_complete']){
-    localStorage.setItem('check_video_complete',  bvm_handler);
     u.addEvent("event124");
   }
+  // else if (shaw_tealium_e == b['video_complete']){
+  //   // can be removed, not used in current shaw.ca
+  //   localStorage.setItem('check_video_complete',  bvm_handler);
+  //   u.addEvent("event124");
+  // }
 
 //Pageview - Event1, Link Click - Event12
   if (a == 'view'){
