@@ -65,172 +65,172 @@ window.tealium_enrichment = function(data) {
 
 
 // Tealium Tracking Code for YouTube iframe embeds
-if (jQuery('iframe[src*="youtube.com"]').length > 0) {
- let i = 0, id;
- window.iframe_id = [];
- jQuery('iframe[src*="youtube.com"]').each(function() {
-   if (jQuery(this).attr('id')) {
-     id = jQuery(this).attr('id');
-     window.iframe_id.push(id);
-   } else {
-     id = 'tealium_youtube' + i;
-     jQuery(this).attr('id', id);
-     window.iframe_id.push(id);
-     i++;
-   }
- });
-}
-
-function setMileStones(i) {
-  mileStones[i] = [25, 50, 75, 95, 100];
-}
-let mileStones = [];
-if (window.iframe_id) {
-  for (i = 0; i < window.iframe_id.length; i++) {
-    setMileStones(i);
-  }
-}
+// if (jQuery('iframe[src*="youtube.com"]').length > 0) {
+//  let i = 0, id;
+//  window.iframe_id = [];
+//  jQuery('iframe[src*="youtube.com"]').each(function() {
+//    if (jQuery(this).attr('id')) {
+//      id = jQuery(this).attr('id');
+//      window.iframe_id.push(id);
+//    } else {
+//      id = 'tealium_youtube' + i;
+//      jQuery(this).attr('id', id);
+//      window.iframe_id.push(id);
+//      i++;
+//    }
+//  });
+// }
+//
+// function setMileStones(i) {
+//   mileStones[i] = [25, 50, 75, 95, 100];
+// }
+// let mileStones = [];
+// if (window.iframe_id) {
+//   for (i = 0; i < window.iframe_id.length; i++) {
+//     setMileStones(i);
+//   }
+// }
 
 // Load the YouTube iframe library
-let ytapi = document.createElement('script');
-ytapi.src="https://www.youtube.com/iframe_api";
-let scriptref = document.getElementsByTagName('script')[0];
-scriptref.parentNode.insertBefore(ytapi, scriptref);
-
-window.players = [];
-window.onYouTubeIframeAPIReady = function() {
-  // Confirm existing ID or set ID in the iframe for each video on the page
-  jQuery('iframe[src*="youtube.com"]').each(function() {
-  let id = jQuery(this).attr('id');
-  window.players[id] = new YT.Player(id, {
-    events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
-      }
-    });
-  });
-};
-
-window.start = [];
-window.onPlayerReady = function(event) {
- //Log that the video is ready/open
- let idx;
- for (i = 0; i < window.iframe_id.length; i++) {
-   if (window.iframe_id[i] === event.target.a.id) {
-     idx = i;
-   }
-   window.start.push(true);
- }
- if (event.target.getPlayerState() === YT.PlayerState.CUED) {
-   let player = event.target;
-   let player_data = player.getVideoData() ;
-   utag.link(
-   { tealium_event: 'video_load',
-     video_id: player_data.video_id,
-     video_length: Math.round(player.getDuration()).toString(),
-     video_name: player_data.title,
-     video_platform: 'YouTube'
-   });
-  }
-};
-
-let playerCheckInterval, event;
-
-window.onPlayerStateChange = function(event) {
- player = event.target;
- let playhead, idx;
- for (i = 0; i < window.iframe_id.length; i++) {
-   if (window.iframe_id[i] === event.target.a.id) {
-     idx = i;
-   }
- }
-
- let shaw_t_event_ = "";
- let perComplete = ((player.getCurrentTime() / player.getDuration()) * 100).toString;
- if (event.data == YT.PlayerState.PLAYING) {
-   if (start[idx]) {
-     if (mileStones[idx].length > 0) {
-       playerCheckInterval = setInterval(mileStoneCheck, 50);
-     }
-     shaw_t_event_ = "video_start";
-     playhead = 0;
-   } else {
-     //This will catch when the video playback is changed from not playing to playing
-     shaw_t_event_ = "video_play";
-     playhead = player.getCurrentTime().toString();
-   }
-   start[idx] = false;
-
- } else if (event.data == YT.PlayerState.PAUSED) {
-   shaw_t_event_ = "video_pause";
-   playhead = player.getCurrentTime().toString();
-
- } else if (event.data == YT.PlayerState.ENDED) {
-   if (mileStones[idx].length > 0) {
-     clearInterval(playerCheckInterval);
-     // reset in case visitor replays the video
-     playerCheckInterval = 0;
-     setMileStones(idx);
-   }
-   shaw_t_event_ = "video_complete"; // utag
-   playhead = Math.round(player.getDuration()).toString();
- } else if (perComplete == '95') {
-   shaw_t_event_ = "video_complete"; // utag
-   playhead = Math.round(player.getDuration()).toString();
-   if (mileStones[idx].length > 0) {
-     clearInterval(playerCheckInterval);
-     // reset in case visitor replays the video
-     playerCheckInterval = 0;
-     setMileStones(idx);
-   }
- }
-
- if (shaw_t_event_) {
-   utag.DB("Video event: " + shaw_t_event_ + ", video ID: " + window.iframe_id[idx]);
-   let player_data = player.getVideoData() ;
-   utag.link(
-   { tealium_event: shaw_t_event_,
-     video_playhead: parseInt(playhead).toString(),
-     video_id: player_data.video_id,
-     video_length: Math.round(player.getDuration()).toString(),
-     video_name: player_data.title,
-     per_complete: perComplete,
-     video_platform: 'YouTube'
-   });
- }
-
-  function mileStoneCheck() {
-    let idx;
-    for (i = 0; i < window.iframe_id.length; i++) {
-      if (window.iframe_id[i] === player.a.id) {
-        idx = i;
-      }
-    }
-    let duration = Math.round(player.getDuration());
-    let playhead = parseInt(player.getCurrentTime());
-    let percComplete = (playhead / duration) * 100;
-    let ms_len = mileStones[idx].length;
-    if (ms_len > 0) {
-      let next_ms = mileStones[idx][0];
-      if (next_ms <= percComplete) {
-        mileStones[idx].shift();
-        utag.DB("Video event: video_milestone, video ID: " + window.iframe_id[idx] + ", Milestone=" + percComplete.toFixed());
-        localStorage.setItem('check_video_milestone', "Video event: video_milestone, video ID: " + window.iframe_id[idx] + ", Milestone=" + percComplete.toFixed());
-        let player_data = player.getVideoData() ;
-        utag.link(
-        { tealium_event: 'video_milestone',
-          video_playhead: parseInt(playhead).toString(),
-          video_id: player_data.video_id,
-          video_length: duration.toString(),
-          video_milestone: next_ms.toString(),
-          video_name: player_data.title,
-          per_complete: perComplete,
-          video_platform: 'YouTube'
-        });
-      }
-    }
-  }
-};
+// let ytapi = document.createElement('script');
+// ytapi.src="https://www.youtube.com/iframe_api";
+// let scriptref = document.getElementsByTagName('script')[0];
+// scriptref.parentNode.insertBefore(ytapi, scriptref);
+//
+// window.players = [];
+// window.onYouTubeIframeAPIReady = function() {
+//   // Confirm existing ID or set ID in the iframe for each video on the page
+//   jQuery('iframe[src*="youtube.com"]').each(function() {
+//   let id = jQuery(this).attr('id');
+//   window.players[id] = new YT.Player(id, {
+//     events: {
+//       'onReady': onPlayerReady,
+//       'onStateChange': onPlayerStateChange
+//       }
+//     });
+//   });
+// };
+//
+// window.start = [];
+// window.onPlayerReady = function(event) {
+//  //Log that the video is ready/open
+//  let idx;
+//  for (i = 0; i < window.iframe_id.length; i++) {
+//    if (window.iframe_id[i] === event.target.a.id) {
+//      idx = i;
+//    }
+//    window.start.push(true);
+//  }
+//  if (event.target.getPlayerState() === YT.PlayerState.CUED) {
+//    let player = event.target;
+//    let player_data = player.getVideoData() ;
+//    utag.link(
+//    { tealium_event: 'video_load',
+//      video_id: player_data.video_id,
+//      video_length: Math.round(player.getDuration()).toString(),
+//      video_name: player_data.title,
+//      video_platform: 'YouTube'
+//    });
+//   }
+// };
+//
+// let playerCheckInterval, event;
+//
+// window.onPlayerStateChange = function(event) {
+//  player = event.target;
+//  let playhead, idx;
+//  for (i = 0; i < window.iframe_id.length; i++) {
+//    if (window.iframe_id[i] === event.target.a.id) {
+//      idx = i;
+//    }
+//  }
+//
+//  let shaw_t_event_ = "";
+//  let perComplete = ((player.getCurrentTime() / player.getDuration()) * 100).toString;
+//  if (event.data == YT.PlayerState.PLAYING) {
+//    if (start[idx]) {
+//      if (mileStones[idx].length > 0) {
+//        playerCheckInterval = setInterval(mileStoneCheck, 50);
+//      }
+//      shaw_t_event_ = "video_start";
+//      playhead = 0;
+//    } else {
+//      //This will catch when the video playback is changed from not playing to playing
+//      shaw_t_event_ = "video_play";
+//      playhead = player.getCurrentTime().toString();
+//    }
+//    start[idx] = false;
+//
+//  } else if (event.data == YT.PlayerState.PAUSED) {
+//    shaw_t_event_ = "video_pause";
+//    playhead = player.getCurrentTime().toString();
+//
+//  } else if (event.data == YT.PlayerState.ENDED) {
+//    if (mileStones[idx].length > 0) {
+//      clearInterval(playerCheckInterval);
+//      // reset in case visitor replays the video
+//      playerCheckInterval = 0;
+//      setMileStones(idx);
+//    }
+//    shaw_t_event_ = "video_complete"; // utag
+//    playhead = Math.round(player.getDuration()).toString();
+//  } else if (perComplete == '95') {
+//    shaw_t_event_ = "video_complete"; // utag
+//    playhead = Math.round(player.getDuration()).toString();
+//    if (mileStones[idx].length > 0) {
+//      clearInterval(playerCheckInterval);
+//      // reset in case visitor replays the video
+//      playerCheckInterval = 0;
+//      setMileStones(idx);
+//    }
+//  }
+//
+//  if (shaw_t_event_) {
+//    utag.DB("Video event: " + shaw_t_event_ + ", video ID: " + window.iframe_id[idx]);
+//    let player_data = player.getVideoData() ;
+//    utag.link(
+//    { tealium_event: shaw_t_event_,
+//      video_playhead: parseInt(playhead).toString(),
+//      video_id: player_data.video_id,
+//      video_length: Math.round(player.getDuration()).toString(),
+//      video_name: player_data.title,
+//      per_complete: perComplete,
+//      video_platform: 'YouTube'
+//    });
+//  }
+//
+//   function mileStoneCheck() {
+//     let idx;
+//     for (i = 0; i < window.iframe_id.length; i++) {
+//       if (window.iframe_id[i] === player.a.id) {
+//         idx = i;
+//       }
+//     }
+//     let duration = Math.round(player.getDuration());
+//     let playhead = parseInt(player.getCurrentTime());
+//     let percComplete = (playhead / duration) * 100;
+//     let ms_len = mileStones[idx].length;
+//     if (ms_len > 0) {
+//       let next_ms = mileStones[idx][0];
+//       if (next_ms <= percComplete) {
+//         mileStones[idx].shift();
+//         utag.DB("Video event: video_milestone, video ID: " + window.iframe_id[idx] + ", Milestone=" + percComplete.toFixed());
+//         localStorage.setItem('check_video_milestone', "Video event: video_milestone, video ID: " + window.iframe_id[idx] + ", Milestone=" + percComplete.toFixed());
+//         let player_data = player.getVideoData() ;
+//         utag.link(
+//         { tealium_event: 'video_milestone',
+//           video_playhead: parseInt(playhead).toString(),
+//           video_id: player_data.video_id,
+//           video_length: duration.toString(),
+//           video_milestone: next_ms.toString(),
+//           video_name: player_data.title,
+//           per_complete: perComplete,
+//           video_platform: 'YouTube'
+//         });
+//       }
+//     }
+//   }
+// };
 
 
 
