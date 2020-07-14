@@ -24,7 +24,7 @@ window.aid_prioritize = function(qualified_audiences) {
           {name: '333377_2YVP Upsell Personalization 2', audience_id: '333377', priority: 13},
           {name: '333381_Existing Customer_Student_Segment1', audience_id: '333381', priority: 14},
           {name: '333382_Existing Customer_Student_Segment2', audience_id: '333382', priority: 15},
-          {name: '333383_Existing Customer_Student_Segment3', audience_id: '333383', priority: 16},
+          {name: '333384_Existing Customer_Student_Segment3', audience_id: '333384', priority: 16},
           {name: '333380_Existing Customer Targeted Upsell', audience_id: '333380', priority: 17},
           {name: '3P Internet TV Phone Customers', audience_id: '333336', priority: 18},
           {name: '2P Internet Phone Customers', audience_id: '333335', priority: 19},
