@@ -10,8 +10,8 @@ window.aid_prioritize = function(qualified_audiences) {
   /*list*/
   var list = [
           {name: '333383_Ellipse Cross Sell Always On', audience_id: '333383', priority: 1},
-          {name: '333378_Cross Sell AlwaysOn_1P Internet 2YVP BlueCurve', audience_id: '333378', priority: 2},
-          {name: '333379_Cross Sell AlwaysOn_1P Internet 2YVP Legacy', audience_id: '333379', priority: 3},
+          {name: '333378_Video Cross Sell AlwaysOn_1P Internet 2YVP BlueCurve', audience_id: '333378', priority: 2},
+          {name: '333379_Video Cross Sell AlwaysOn_1P Internet 2YVP Legacy', audience_id: '333379', priority: 3},
           {name: '333348_2YVP Renewal Framework Segment 1A', audience_id: '333348', priority: 4},
           {name: '333349_2YVP Renewal Framework Segment 1B', audience_id: '333349', priority: 5},
           {name: 'Existing Customer 2YVP Renewal', audience_id: '333352', priority: 6},
