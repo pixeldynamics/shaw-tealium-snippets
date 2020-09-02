@@ -329,4 +329,12 @@ window.aid_prioritize = function(qualified_audiences) {
   }
 
   // PII masking using the default variable ClickTalePIISelector
+  // @TODO remove this
   window.ClickTalePIISelector="#firstName,#lastName,#contactEmail,#contactPhoneNumber";
+
+  // clicktale PIIblocker wrapper
+  // takes an array of values
+  function piiBlocker(params)  {
+    let allParams = params.join(',');
+    window.ClickTalePIISelector=`${allParams}`; 
+  }
