@@ -320,6 +320,12 @@ window.aid_prioritize = function(qualified_audiences) {
       return false;
     }
   }
+    // clicktale PIIblocker wrapper
+  // takes an array of values
+//   function piiBlocker(params)  {
+//     let allParams = params.join(',');
+//     window.ClickTalePIISelector=`${allParams}`; 
+//   }
 
   // url toggle
   if(window.location.href.indexOf('tshaw=off') > -1 || location.search.indexOf('tshaw=off') > -1){
@@ -332,9 +338,3 @@ window.aid_prioritize = function(qualified_audiences) {
   // @TODO remove this
   window.ClickTalePIISelector="#firstName,#lastName,#contactEmail,#contactPhoneNumber";
 
-  // clicktale PIIblocker wrapper
-  // takes an array of values
-  function piiBlocker(params)  {
-    let allParams = params.join(',');
-    window.ClickTalePIISelector=`${allParams}`; 
-  }
