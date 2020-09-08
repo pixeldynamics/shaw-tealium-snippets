@@ -320,12 +320,22 @@ window.aid_prioritize = function(qualified_audiences) {
       return false;
     }
   }
-    // clicktale PIIblocker wrapper
-  // takes an array of values
-//   function piiBlocker(params)  {
-//     let allParams = params.join(',');
-//     window.ClickTalePIISelector=`${allParams}`; 
-//   }
+
+    /**
+     * piiBlocker. Wrapper
+     *
+     * param {array} shaw_pii_params.
+     *
+     */
+    function piiBlocker(shaw_pii_params) {
+        if (Array.isArray(shaw_pii_params) && shaw_pii_params != undefined) {
+        console.log(`variables set : "${shaw_pii_params}"`);
+        // @TODO: move to common lib and set for QA
+        // window.ClickTalePIISelector=`"${shaw_pii_params}"`;
+        } else {
+        console.log('ERROR: not array');
+        }
+    }
 
   // url toggle
   if(window.location.href.indexOf('tshaw=off') > -1 || location.search.indexOf('tshaw=off') > -1){
