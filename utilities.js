@@ -344,7 +344,7 @@ window.aid_prioritize = function(qualified_audiences) {
     window.utag_cfg_ovrd.noload = true;
   }
 // update audience with aid value in
-    let w_reference = window.location
+    let w_reference = window.location;
     if(w_reference.href.indexOf('aid=') > -1 ){
         let aidLoc = w_reference.href.indexOf('aid=');
         let protoLenght =  (w_reference.protocol.length) -1;
