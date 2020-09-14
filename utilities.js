@@ -343,7 +343,15 @@ window.aid_prioritize = function(qualified_audiences) {
     window.utag_cfg_ovrd.dom_complete = true;
     window.utag_cfg_ovrd.noload = true;
   }
-
+// update audience with aid value in
+    let w_reference = window.location
+    if(w_reference.href.indexOf('aid=') > -1 ){
+        let aidLoc = w_reference.href.indexOf('aid=');
+        let protoLenght =  (w_reference.protocol.length) -1;
+        let this_aid =  w_reference.href.substr(aidLoc+protoLenght, 6); 
+        let cookieString = "audienceQualifier="+this_aid+"; expires=Thu, 18 Dec 2063 12:00:00 UTC" ;
+        document.cookie = cookieString; 
+    }  
   // PII masking using the default variable ClickTalePIISelector
   // @TODO remove this
   window.ClickTalePIISelector="#firstName,#lastName,#contactEmail,#contactPhoneNumber";
