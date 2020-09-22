@@ -359,15 +359,16 @@ window.aid_prioritize = function(qualified_audiences) {
   // @TODO remove this
   window.ClickTalePIISelector="#firstName,#lastName,#contactEmail,#contactPhoneNumber";
  
+
 let w_reference = window.location;
 // @TODO first delete existing cookie
 if(w_reference.href.indexOf('aid=') > -1 ){
 document.cookie = "audienceQualifier=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     let aidLoc = w_reference.href.indexOf('aid=');
     let protoLenght =  (w_reference.protocol.length) -1;
-    let aid =  w_reference.href.substr(aidLoc+protoLenght, 6); 
+    let currentAid =  w_reference.href.substr(aidLoc+protoLenght, 6); 
     let dateString = 'Thu, 18 Dec 2063 12:00:00 UTC'; 	
     
-    let cookieString = "audienceQualifier="+aid+"; expires="  + dateString;
+    let cookieString = "audienceQualifier="+currentAid+"; expires="  + dateString;
     document.cookie = cookieString; //set cookie
 } 
