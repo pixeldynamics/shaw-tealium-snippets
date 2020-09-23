@@ -363,12 +363,21 @@ window.aid_prioritize = function(qualified_audiences) {
 let w_reference = window.location;
 // @TODO first delete existing cookie
 if(w_reference.href.indexOf('aid=') > -1 ){
-document.cookie = "audienceQualifier=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "audienceQualifier= ; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     let aidLoc = w_reference.href.indexOf('aid=');
-    let protoLenght =  (w_reference.protocol.length) -1;
+    let protoLenght=0;
+    let track=0;
+	if (window.location.protocol == "https:") {
+	    protoLenght =  (w_reference.protocol.length) -2;
+	    track =1;
+	}else{
+		protoLenght =  (w_reference.protocol.length) -1;
+		track =2;
+	}
     let currentAid =  w_reference.href.substr(aidLoc+protoLenght, 6); 
-    let dateString = 'Thu, 18 Dec 2063 12:00:00 UTC'; 	
+    console.log('hit' +track); 
     
+    let dateString = 'Thu, 18 Dec 2063 12:00:00 UTC; path=/;domain=.shaw.ca'; 	
     let cookieString = "audienceQualifier="+currentAid+"; expires="  + dateString;
     document.cookie = cookieString; //set cookie
 } 

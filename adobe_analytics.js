@@ -52,12 +52,14 @@ function s_doPlugins(s) {
       b.marketing_cloud_id = s.eVar13 = s.c_r('AMCV_5F34123F5245B4A70A490D45@AdobeOrg').replace(/.*MCMID\ |-( [^\|]*)\|.*/g,"$1");
     }
 
+    // 
+    s.eVar82 = b['entry_audience_id'];
+
     /* set youtube evars*/
     s.eVar108 = b['video_platform'];
     s.eVar109 = b['video_name'];
     s.eVar110 = b['video_length'];
     s.eVar111 = b['video_id'];
-    // s.eVar111 = b['video_id'];
 }
 s.doPlugins = s_doPlugins
 
