@@ -332,21 +332,6 @@ window.aid_prioritize = function(qualified_audiences) {
     }
   }
 
-    /**
-     * piiBlocker. Wrapper
-     *
-     * param {array} shaw_pii_params.
-     *
-     */
-    // function piiBlocker(shaw_pii_params) {
-    //     if (Array.isArray(shaw_pii_params) && shaw_pii_params != undefined) {
-    //     console.log('"' + shaw_pii_params+ '"' );
-    //     // @TODO: move to common lib and set for QA
-    //     // window.ClickTalePIISelector='"' + shaw_pii_params+ '"' ;
-    //     } else {
-    //     console.log('ERROR: not array');
-    //     }
-    // }
 
   // url toggle
   if(window.location.href.indexOf('tshaw=off') > -1 || location.search.indexOf('tshaw=off') > -1){
@@ -359,25 +344,12 @@ window.aid_prioritize = function(qualified_audiences) {
   // @TODO remove this
   window.ClickTalePIISelector="#firstName,#lastName,#contactEmail,#contactPhoneNumber";
  
+// removed: done in app
+// aid cookie update function cookie
+// if(w_reference.href.indexOf('aid=') > -1 ){
 
-let w_reference = window.location;
-// @TODO first delete existing cookie
-if(w_reference.href.indexOf('aid=') > -1 ){
-    document.cookie = "audienceQualifier= ; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    let aidLoc = w_reference.href.indexOf('aid=');
-    let protoLenght=0;
-    let track=0;
-	if (window.location.protocol == "https:") {
-	    protoLenght =  (w_reference.protocol.length) -2;
-	    track =1;
-	}else{
-		protoLenght =  (w_reference.protocol.length) -1;
-		track =2;
-	}
-    let currentAid =  w_reference.href.substr(aidLoc+protoLenght, 6); 
-    console.log('hit' +track); 
-    
-    let dateString = 'Thu, 18 Dec 2063 12:00:00 UTC; path=/;domain=.shaw.ca'; 	
-    let cookieString = "audienceQualifier="+currentAid+"; expires="  + dateString;
-    document.cookie = cookieString; //set cookie
-} 
+//  * piiBlocker. Wrapper
+//  *
+//  * param {array} shaw_pii_params.
+//  *
+//  */
