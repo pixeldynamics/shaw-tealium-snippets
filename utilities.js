@@ -345,11 +345,5 @@ window.aid_prioritize = function(qualified_audiences) {
   window.ClickTalePIISelector="#firstName,#lastName,#contactEmail,#contactPhoneNumber";
  
 // removed: done in app
-// aid cookie update function cookie
-// if(w_reference.href.indexOf('aid=') > -1 ){
-
-//  * piiBlocker. Wrapper
-//  *
-//  * param {array} shaw_pii_params.
-//  *
-//  */
+// aid cookie update function 
+// piiblocker 
