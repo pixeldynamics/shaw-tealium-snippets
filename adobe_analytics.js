@@ -202,7 +202,7 @@ s.getActionDepth=new Function("c",""
   let upfrontPaymentTIQ = b['product_upfront_payment_amount']; // @TODO: move to top of file 
   if (upfrontPaymentTIQ === 'product_upfront_payment_amount'){
     localStorage.setItem('product_upfront_payment_amount', upfrontPaymentTIQ);
-    u.addEvent("event187");
+    u.addEvent("PRODUCTS_event187");
   } else{
     // localStorage.setItem('failed');
   }
