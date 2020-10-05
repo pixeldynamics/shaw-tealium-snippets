@@ -1,9 +1,10 @@
 //Do Plugins
 s.usePlugins = true;
 
-// variables for video
+// variables for video @TODO:Schedule for deprecation
 let shaw_tealium_e = b['tealium_event']; // tealium event
 let bvm_handler = b['video_milestone'];  // milestone variable
+
 
 if (typeof(Visitor) != 'undefined') {
   s.visitor = Visitor.getInstance("5F34123F5245B4A70A490D45@AdobeOrg");
@@ -197,7 +198,16 @@ s.getActionDepth=new Function("c",""
       break;
   }
 
-
+  // upfront payment by Matt  for QA
+  let upfrontPaymentTIQ = b['product_upfront_payment_amount']; // @TODO: move to top of file 
+  switch(upfrontPaymentTIQ) {
+    case 'product_upfront_payment_amount':
+      localStorage.setItem('product_upfront_payment_amount', upfrontPaymentTIQ);
+      u.addEvent("event187");
+      break;
+  }
+ 
+  // schedule to Deprecate?
   // video milestone handler @TODO: use switch
   // @TODO: add 95 milestone in leu of 80 and remap
   // if new event given else map to event124
