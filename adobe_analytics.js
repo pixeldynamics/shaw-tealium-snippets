@@ -198,15 +198,16 @@ s.getActionDepth=new Function("c",""
       break;
   }
 
-  // upfront payment by Matt  for QA
+  // upfront payment 
   let upfrontPaymentTIQ = b['product_upfront_payment_amount']; // @TODO: move to top of file 
-  switch(upfrontPaymentTIQ) {
-    case 'product_upfront_payment_amount':
-      localStorage.setItem('product_upfront_payment_amount', upfrontPaymentTIQ);
-      u.addEvent("event187");
-      break;
+  if (upfrontPaymentTIQ === 'product_upfront_payment_amount'){
+    localStorage.setItem('product_upfront_payment_amount', upfrontPaymentTIQ);
+    u.addEvent("event187");
+  } else{
+    // localStorage.setItem('failed');
   }
- 
+
+  
   // schedule to Deprecate?
   // video milestone handler @TODO: use switch
   // @TODO: add 95 milestone in leu of 80 and remap
