@@ -197,7 +197,7 @@ s.getActionDepth=new Function("c",""
       u.addEvent("event126");
       break;
   }
-
+ 
   // upfront payment 
   let upfrontPaymentTIQ = b['product_upfront_payment_amount']; // @TODO: move to top of file 
   if (upfrontPaymentTIQ === 'product_upfront_payment_amount'){
