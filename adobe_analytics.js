@@ -224,7 +224,7 @@ s.getActionDepth=new Function("c",""
     u.addEvent("event124");
   }
   // else if (shaw_tealium_e == b['video_complete']){
-  //   // can be removed, not used in current shaw.ca
+  //   //@TODO: can be removed, not used in current shaw.ca
   //   localStorage.setItem('check_video_complete',  bvm_handler);
   //   u.addEvent("event124");
   // }
