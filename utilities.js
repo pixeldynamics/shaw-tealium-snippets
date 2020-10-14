@@ -42,9 +42,9 @@ window.aid_prioritize = function(qualified_audiences) {
           {name: '1P Phone Customers', audience_id: '333332', priority: 31},
           {name: '1P Internet Customers', audience_id: '333331', priority: 32},
           {name: '1P TV Customers', audience_id: '333330', priority: 33},
-          {name: '111153_Ellipse Audience', audience_id: '111153', priority: 34},
-          {name: 'Bundlers - Tier 2',audience_id: '111145',priority: 35},
-          {name: 'Internet Lovers - Tier 2',audience_id: '111130',priority: 36},
+          //{name: '111153_Ellipse Audience', audience_id: '111153', priority: 34},
+          //{name: 'Bundlers - Tier 2',audience_id: '111145',priority: 35},
+          //{name: 'Internet Lovers - Tier 2',audience_id: '111130',priority: 36},
           {name: 'Bundlers - Tier 1',audience_id: '111143',priority: 37},
           {name: 'Internet Lovers - Tier 1',audience_id: '111129',priority: 38},
           {name: '111154_Mid Funnel Audience',audience_id: '111154',priority: 39},
@@ -344,7 +344,7 @@ window.aid_prioritize = function(qualified_audiences) {
   // PII masking using the default variable ClickTalePIISelector
   // @TODO remove this
   window.ClickTalePIISelector="#firstName,#lastName,#contactEmail,#contactPhoneNumber";
- 
+
 // removed: done in app
-// aid cookie update function 
-// piiblocker 
+// aid cookie update function
+// piiblocker
