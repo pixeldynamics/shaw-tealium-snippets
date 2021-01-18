@@ -81,6 +81,15 @@ window.aid_prioritize = function(qualified_audiences) {
       }
       else { return "";}
   }
+window.tealium_enrichment = function(data) {
+    document.dispatchEvent(new CustomEvent("tealiumDLE", {
+        detail: data
+    }));
+};
+
+
+
+
 
   //Get URL Parameters
   function get_url_param(name) {
